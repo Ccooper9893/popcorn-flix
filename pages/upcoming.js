@@ -1,21 +1,51 @@
-const Upcoming = ({movies}) => {
+import Image from "next/image";
+import YouTube from "react-youtube";
+
+const Upcoming = ({ movies }) => {
+
+    const opts = {
+        height: '390',
+        width: '640',
+        playerVars: {
+          // https://developers.google.com/youtube/player_parameters
+          autoplay: 1,
+        },
+      };
 
     const filteredMovies = movies.filter(movie => {
-        if(movie.original_language === "en") {
+        if (movie.original_language === "en") {
             return movie;
         };
     });
-    
-    return <h1>Upcoming Page</h1>
+
+    return (
+        <div className="flex flex-row flex-wrap justify-center gap-4 pt-8 bg-black">
+            {filteredMovies.map((movie) => {
+                const posterUrl = `https://image.tmdb.org/t/p/original${movie.poster_path}`
+                return (
+                    <div key={movie.id}>
+                        <Image
+                            className="rounded-lg"
+                            src={posterUrl}
+                            width={216}
+                            height={400}
+                            alt="Movie Poster">
+                        </Image>
+                    </div>
+                )
+            })}
+            {/* <YouTube videoId="DuWEEKeJLMI" opts={opts}/> */}
+        </div>
+    )
 };
 
-export const getServerSideProps = async ({req, res}) => {
+export const getServerSideProps = async ({ req, res }) => {
     res.setHeader(
         'Cache-Control',
         'public, s-maxage=86400, stale-while-revalidate=5'
-      )
+    )
 
-    const response = await fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.API_KEY}&language=en-US&page=1`);
+    const response = await fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.API_KEY}&page=1`);
     const data = await response.json();
     return {
         props: {
