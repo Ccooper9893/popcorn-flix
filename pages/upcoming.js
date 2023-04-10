@@ -1,16 +1,9 @@
 import Image from "next/image";
-import YouTube from "react-youtube";
+
 
 const Upcoming = ({ movies }) => {
 
-    const opts = {
-        height: '390',
-        width: '640',
-        playerVars: {
-          // https://developers.google.com/youtube/player_parameters
-          autoplay: 1,
-        },
-      };
+
 
     const filteredMovies = movies.filter(movie => {
         if (movie.original_language === "en") {
@@ -34,7 +27,6 @@ const Upcoming = ({ movies }) => {
                     </div>
                 )
             })}
-            {/* <YouTube videoId="DuWEEKeJLMI" opts={opts}/> */}
         </div>
     )
 };
