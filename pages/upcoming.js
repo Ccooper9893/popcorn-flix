@@ -3,8 +3,6 @@ import Image from "next/image";
 
 const Upcoming = ({ movies }) => {
 
-
-
     const filteredMovies = movies.filter(movie => {
         if (movie.original_language === "en") {
             return movie;
@@ -12,17 +10,19 @@ const Upcoming = ({ movies }) => {
     });
 
     return (
-        <div className="flex flex-row flex-wrap justify-center gap-4 pt-8 bg-black">
-            {filteredMovies.map((movie) => {
+        <div className="flex flex-row flex-wrap justify-center gap-4 py-8 bg-black">
+            {movies.map((movie) => {
                 const posterUrl = `https://image.tmdb.org/t/p/original${movie.poster_path}`
                 return (
                     <div key={movie.id}>
                         <Image
-                            className="rounded-lg"
+                            className="rounded-lg hover:scale-105"
+                            style={{ transition: "transform .2s" }}
                             src={posterUrl}
                             width={216}
                             height={400}
-                            alt="Movie Poster">
+                            alt="Movie Poster"
+                            >     
                         </Image>
                     </div>
                 )
