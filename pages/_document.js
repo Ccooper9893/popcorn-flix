@@ -5,13 +5,10 @@ export default function Document() {
     <Html lang="en">
       <Head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin/>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400&display=swap"
-          rel="stylesheet"
-        />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet" />
       </Head>
-      <body className='h-screen bg-black'>
+      <body className='h-screen'>
         <Main />
         <NextScript />
       </body>

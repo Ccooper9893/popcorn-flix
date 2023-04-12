@@ -1,30 +1,22 @@
-import Image from "next/image";
-
+import { useState } from "react";
+import MovieCard from "@/components/MovieCard";
 
 const Upcoming = ({ movies }) => {
 
-    const filteredMovies = movies.filter(movie => {
-        if (movie.original_language === "en") {
-            return movie;
-        };
-    });
+    const [movieList, setMovieList] = useState(movies);
+    console.log(movieList);
+
+    // const filteredMovies = movies.filter(movie => {
+    //     if (movie.original_language === "en") {
+    //         return movie;
+    //     };
+    // });
 
     return (
         <div className="flex flex-row flex-wrap justify-center gap-4 py-8 bg-black">
             {movies.map((movie) => {
-                const posterUrl = `https://image.tmdb.org/t/p/original${movie.poster_path}`
                 return (
-                    <div key={movie.id}>
-                        <Image
-                            className="rounded-lg hover:scale-105"
-                            style={{ transition: "transform .2s" }}
-                            src={posterUrl}
-                            width={216}
-                            height={400}
-                            alt="Movie Poster"
-                            >     
-                        </Image>
-                    </div>
+                    <MovieCard key={movie.id} movie={movie}/>
                 )
             })}
         </div>
@@ -32,6 +24,7 @@ const Upcoming = ({ movies }) => {
 };
 
 export const getServerSideProps = async ({ req, res }) => {
+
     res.setHeader(
         'Cache-Control',
         'public, s-maxage=86400, stale-while-revalidate=5'
@@ -47,33 +40,3 @@ export const getServerSideProps = async ({ req, res }) => {
 };
 
 export default Upcoming;
-
-//Image link for posters
-//https://image.tmdb.org/t/p/original/${posterCode}
-
-/* Example movie object
-[
-    {
-        "adult": false,
-        "backdrop_path": "/9n2tJBplPbgR2ca05hS5CKXwP2c.jpg",
-        "genre_ids": [
-            16,
-            12,
-            10751,
-            14,
-            35
-        ],
-        "id": 502356,
-        "original_language": "en",
-        "original_title": "The Super Mario Bros. Movie",
-        "overview": "While working underground to fix a water main, Brooklyn plumbers—and brothers—Mario and Luigi are transported down a mysterious pipe and wander into a magical new world. But when the brothers are separated, Mario embarks on an epic quest to find Luigi.",
-        "popularity": 10058.912,
-        "poster_path": "/qNBAXBIQlnOThrVvA6mA2B5ggV6.jpg",
-        "release_date": "2023-04-05",
-        "title": "The Super Mario Bros. Movie",
-        "video": false,
-        "vote_average": 7.5,
-        "vote_count": 410
-    }
-]
-*/
