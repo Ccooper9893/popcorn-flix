@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import YouTube from "react-youtube";
 import Image from "next/image";
 import fetchMovieData from "@/utils/fetchDetails";
+import Rating from "@/components/Rating";
 
 const MovieDetail = () => {
 
@@ -23,12 +24,10 @@ const MovieDetail = () => {
         fetchData();
     }, [movieId]);
 
-    const posterUrl = `https://image.tmdb.org/t/p/original${movie?.backdrop_path}`
-
     const opts = {
         host: "https://www.youtube-nocookie.com",
-        height: '100%',
-        width: '100%',
+        height: '300px',
+        width: '75%',
         playerVars: {
             // https://developers.google.com/youtube/player_parameters
             autoplay: 0,
@@ -42,26 +41,17 @@ const MovieDetail = () => {
                 ? (<h1>Loading...</h1>)
                 : (
                     <div className="w-screen">
-                        <div className="flex justify-center rounded-2xl bg-zinc-900">
-                            <YouTube className="rounded-2xl" videoId={videoKey} opts={opts} />
-                        </div>
-                        <div className="grid lg:grid-cols-2">
+                        <div className="grid lg:grid-cols-2 p-4">
 
-                            <div className="relative w-full">
-                                <Image
-                                    className="w-screen m-auto"
-                                    style={{ transition: "transform .2s" }}
-                                    src={posterUrl}
-                                    width={1000}
-                                    height={250}
-                                    alt="Movie Poster"
-                                >
-                                </Image>
+                            <div className="relative">
+                            <YouTube className="rounded-2xl" videoId={videoKey} opts={opts} />
 
                             </div>
-                            <div className=" bg-zinc-900">
+                            <div className="">
                             <h1 className="font-bold text-xl text-center w-full">{movie.original_title}</h1>
                             <p className="text-center m-6">{movie.overview}</p>
+                            <p>Release Date: {movie.release_date}</p>
+                            <Rating props={movie.vote_average}/>
                             </div>
                         </div>
 

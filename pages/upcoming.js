@@ -10,8 +10,8 @@ const Upcoming = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const data = await fetchMovies({action: 'Upcoming', page: 1});
-            setMovieList(data.results);
+            const filteredResults = await fetchMovies({action: 'Upcoming', page: 1});
+            setMovieList(filteredResults);
         }
         
         fetchData();
@@ -20,8 +20,8 @@ const Upcoming = () => {
     const handlePageChange = async () => {
         setPageNum(pageNum+1);
         
-        const data = await fetchMovies({action: 'Upcoming', page: pageNum});
-        setMovieList([...movieList, ...data.results]);
+        const filteredResults = await fetchMovies({action: 'Upcoming', page: pageNum});
+        setMovieList([...movieList, ...filteredResults]);
     }
 
     return (
@@ -41,7 +41,7 @@ const Upcoming = () => {
 
                 )}
                 <div className="flex justify-center p-4">
-                <button className="btn glass btn-wide" onClick={handlePageChange}>Load More</button>
+                <button className="btn btn-small text-xs" onClick={handlePageChange}>More</button>
                 </div>
         </div>
     )
