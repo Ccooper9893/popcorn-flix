@@ -14,11 +14,11 @@ const Navbar = () => {
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                     </label>
                     <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-zinc-900 rounded-box w-52">
-                        <li><Link href="upcoming">Upcoming</Link></li>
-                        <li><Link href="latest">Latest</Link></li>
-                        <li><Link href="nowplaying">Now Playing</Link></li>
-                        <li><Link href="popular">Popular</Link></li>
-                        <li><Link href="toprated">Top Rated</Link></li>
+                        <li><Link href="/upcoming">Upcoming</Link></li>
+                        <li><Link href="/latest">Latest</Link></li>
+                        <li><Link href="/nowplaying">Now Playing</Link></li>
+                        <li><Link href="/popular">Popular</Link></li>
+                        <li><Link href="/toprated">Top Rated</Link></li>
                     </ul>
                 </div>
                 <Image
@@ -34,11 +34,11 @@ const Navbar = () => {
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
-                    <li><Link className={pathname === "/upcoming" ? "border-b border-b-yellow-400" : ""} href="upcoming">Upcoming</Link></li>
-                    <li><Link className={pathname === "/latest" ? "border-b border-b-yellow-400" : ""} href="latest">Latest</Link></li>
-                    <li><Link className={pathname === "/nowplaying" ? "border-b border-b-yellow-400" : ""} href="nowplaying">Now Playing</Link></li>
-                    <li><Link className={pathname === "/popular" ? "border-b border-b-yellow-400" : ""} href="popular">Popular</Link></li>
-                    <li><Link className={pathname === "/toprated" ? "border-b border-b-yellow-400" : ""} href="toprated">Top Rated</Link></li>
+                    <li><Link className={pathname === "/upcoming" ? "border-b border-b-yellow-400" : ""} href="/upcoming">Upcoming</Link></li>
+                    <li><Link className={pathname === "/latest" ? "border-b border-b-yellow-400" : ""} href="/latest">Latest</Link></li>
+                    <li><Link className={pathname === "/nowplaying" ? "border-b border-b-yellow-400" : ""} href="/nowplaying">Now Playing</Link></li>
+                    <li><Link className={pathname === "/popular" ? "border-b border-b-yellow-400" : ""} href="/popular">Popular</Link></li>
+                    <li><Link className={pathname === "/toprated" ? "border-b border-b-yellow-400" : ""} href="/toprated">Top Rated</Link></li>
                 </ul>
             </div>
             <div className="lg:flex navbar-end">

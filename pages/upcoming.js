@@ -1,9 +1,6 @@
-import { useState } from "react";
 import MovieCard from "@/components/MovieCard";
 
 const Upcoming = ({ movies }) => {
-
-    const [movieList, setMovieList] = useState(movies);
 
     // const filteredMovies = movies.filter(movie => {
     //     if (movie.original_language === "en") {
@@ -29,8 +26,9 @@ export const getServerSideProps = async ({ req, res }) => {
         'public, s-maxage=86400, stale-while-revalidate=5'
     )
 
-    const response = await fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.API_KEY}&page=1`);
+    const response = await fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.movieKey}&page=1&append_to_response=videos`);
     const data = await response.json();
+    console.log(data);
     return {
         props: {
             movies: data.results,
