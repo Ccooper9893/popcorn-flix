@@ -1,13 +1,29 @@
+import { useState } from "react";
+
 import Image from "next/image";
 import Link from "next/link";
+import Rating from "./Rating";
 
 const MovieCard = ({ movie }) => {
+    const [opacity, setOpacity] = useState({opacity: 1});
     const posterUrl = `https://image.tmdb.org/t/p/original${movie.poster_path}`
     return (
         <div key={movie.id}>
             <Link href={"/movie/" + movie.id}>
+                <div className="lg:scale-100 hover:scale-105 scale"
+
+                    onMouseEnter={e => {
+                        setOpacity({opacity: 1})
+                    }}
+                    onMouseLeave={e => {
+                        setOpacity({opacity: 1})
+                    }}
+                >
+                    <div className="absolute top-0 right-0 scale-75" style={opacity}>
+                    <Rating props={movie.vote_average}/>
+                    </div>
                 <Image
-                    className="rounded-lg lg:scale-100 hover:scale-105"
+                    className="rounded-lg"
                     style={{ transition: "transform .2s" }}
                     src={posterUrl}
                     width={216}
@@ -15,6 +31,7 @@ const MovieCard = ({ movie }) => {
                     alt="Movie Poster"
                 >
                 </Image>
+                </div>
             </Link>
         </div>
     )

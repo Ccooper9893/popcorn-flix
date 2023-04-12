@@ -1,39 +1,50 @@
+import { useState, useEffect } from "react";
+
 import MovieCard from "@/components/MovieCard";
+import fetchMovies from "@/utils/fetchMovies";
 
-const Upcoming = ({ movies }) => {
+const Upcoming = () => {
 
-    // const filteredMovies = movies.filter(movie => {
-    //     if (movie.original_language === "en") {
-    //         return movie;
-    //     };
-    // });
+    const [movieList, setMovieList] = useState(null);
+    const [pageNum, setPageNum] = useState(2);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const data = await fetchMovies({action: 'Upcoming', page: 1});
+            setMovieList(data.results);
+        }
+        
+        fetchData();
+    }, []);
+
+    const handlePageChange = async () => {
+        setPageNum(pageNum+1);
+        
+        const data = await fetchMovies({action: 'Upcoming', page: pageNum});
+        setMovieList([...movieList, ...data.results]);
+    }
 
     return (
-        <div className="flex flex-row flex-wrap justify-center gap-4 py-8 bg-black">
-            {movies.map((movie) => {
-                return (
-                    <MovieCard key={movie.id} movie={movie}/>
-                )
-            })}
+        <div className=" bg-black">
+            {!movieList
+                ? (<h1>Loading...</h1>)
+                : (
+
+                    <div className="flex flex-row flex-wrap justify-center gap-2 p-2 lg:gap-4 lg:py-6">
+                        {movieList.map((movie) => {
+                            return (
+                                <MovieCard key={movie.id} movie={movie} />
+                            )
+                        })}
+
+                    </div>
+
+                )}
+                <div className="flex justify-center p-4">
+                <button className="btn glass btn-wide" onClick={handlePageChange}>Load More</button>
+                </div>
         </div>
     )
-};
-
-export const getServerSideProps = async ({ req, res }) => {
-
-    res.setHeader(
-        'Cache-Control',
-        'public, s-maxage=86400, stale-while-revalidate=5'
-    )
-
-    const response = await fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.movieKey}&page=1&append_to_response=videos`);
-    const data = await response.json();
-    console.log(data);
-    return {
-        props: {
-            movies: data.results,
-        },
-    };
 };
 
 export default Upcoming;
