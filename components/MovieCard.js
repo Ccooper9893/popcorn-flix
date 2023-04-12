@@ -1,18 +1,21 @@
 import Image from "next/image";
+import Link from "next/link";
 
-const MovieCard = ({movie}) => {
+const MovieCard = ({ movie }) => {
     const posterUrl = `https://image.tmdb.org/t/p/original${movie.poster_path}`
     return (
         <div key={movie.id}>
-            <Image
-                className="rounded-lg lg:scale-100 hover:scale-105"
-                style={{ transition: "transform .2s" }}
-                src={posterUrl}
-                width={216}
-                height={400}
-                alt="Movie Poster"
-            >
-            </Image>
+            <Link href={"/movie/" + movie.id}>
+                <Image
+                    className="rounded-lg lg:scale-100 hover:scale-105"
+                    style={{ transition: "transform .2s" }}
+                    src={posterUrl}
+                    width={216}
+                    height={400}
+                    alt="Movie Poster"
+                >
+                </Image>
+            </Link>
         </div>
     )
 };

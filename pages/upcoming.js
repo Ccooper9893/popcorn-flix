@@ -4,7 +4,6 @@ import MovieCard from "@/components/MovieCard";
 const Upcoming = ({ movies }) => {
 
     const [movieList, setMovieList] = useState(movies);
-    console.log(movieList);
 
     // const filteredMovies = movies.filter(movie => {
     //     if (movie.original_language === "en") {
