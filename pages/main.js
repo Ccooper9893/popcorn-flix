@@ -27,7 +27,7 @@ const Main = () => {
 
     return (
    
-        <div className=" bg-black mt-20">
+        <div className=" bg-black mt-2">
             {!movieList
                 ? (<h1>Loading...</h1>)
                 : (

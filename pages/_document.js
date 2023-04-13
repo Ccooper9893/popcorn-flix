@@ -1,4 +1,5 @@
 import { Html, Head, Main, NextScript } from 'next/document';
+import Navbar from "@/components/Navbar";
 
 export default function Document() {
   return (
@@ -9,9 +10,12 @@ export default function Document() {
         <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet" />
       </Head>
       <body className='h-screen'>
+        <Navbar>
         <Main />
+        </Navbar>
         <NextScript />
       </body>
+      
     </Html>
   );
 };
