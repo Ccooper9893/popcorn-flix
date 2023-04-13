@@ -3,7 +3,8 @@ import { useState, useEffect } from "react";
 import MovieCard from "@/components/MovieCard";
 import fetchMovies from "@/utils/fetchMovies";
 
-const Upcoming = () => {
+
+const Main = () => {
 
     const [movieList, setMovieList] = useState(null);
     const [pageNum, setPageNum] = useState(2);
@@ -25,7 +26,8 @@ const Upcoming = () => {
     }
 
     return (
-        <div className=" bg-black">
+   
+        <div className=" bg-black mt-20">
             {!movieList
                 ? (<h1>Loading...</h1>)
                 : (
@@ -47,4 +49,4 @@ const Upcoming = () => {
     )
 };
 
-export default Upcoming;
+export default Main;
