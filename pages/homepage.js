@@ -4,7 +4,7 @@ import MovieCard from "@/components/MovieCard";
 import fetchMovies from "@/utils/fetchMovies";
 
 
-const Main = () => {
+const HomePage = () => {
 
     const [movieList, setMovieList] = useState(null);
     const [pageNum, setPageNum] = useState(2);
@@ -49,4 +49,4 @@ const Main = () => {
     )
 };
 
-export default Main;
+export default HomePage;

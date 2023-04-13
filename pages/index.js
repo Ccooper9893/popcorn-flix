@@ -1,8 +1,7 @@
-import Main from "./main"
-
+import HomePage from "./homepage"
 
 export default function Home() {
   return (
-    <Main />
+    <HomePage />
   )
 }
