@@ -3,9 +3,10 @@ import { useState, useEffect } from "react";
 import YouTube from "react-youtube";
 import Image from "next/image";
 import fetchMovieData from "@/utils/fetchDetails";
+import fetchSimilarMovies from "@/utils/fetchSimilar";
 import Rating from "@/components/Rating";
 import emptyBucket from "../../../public/emptyBucket.webp";
-
+import MovieCard from "@/components/MovieCard";
 
 const MovieDetail = () => {
 
@@ -15,7 +16,8 @@ const MovieDetail = () => {
 
     const [movie, setMovie] = useState(null);
     const [videoKey, setVideoKey] = useState(null);
-    const [errorDetails, setErrorDetails] = useState(false)
+    const [errorDetails, setErrorDetails] = useState(false);
+    const [movieList, setMovieList] = useState([]);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -33,23 +35,58 @@ const MovieDetail = () => {
             }
         }
 
+        const fetchSimilar = async () => {
+            console.log(movieId);
+            const filteredResults = await fetchSimilarMovies(movieId);
+            setMovieList(filteredResults);
+        }
+
         fetchData();
+        fetchSimilar();
     }, [movieId]);
 
     const opts = {
         host: "https://www.youtube-nocookie.com",
-        height: '250px',
-        width: '400px',
         playerVars: {
-            // https://developers.google.com/youtube/player_parameters
-            autoplay: 0,
-            origin: `http://localhost:3000`
-        },
-    };
+          // https://developers.google.com/youtube/player_parameters
+          autoplay: 0,
+          origin: `http://localhost:3000`
+        }
+      };
+      
+      const mobileDimensions = {
+        height: '300px',
+        width: '350px',
+      };
+      
+      const desktopDimensions = {
+        height: '350px',
+        width: '550px',
+      };
+      
+      // Use a conditional statement to check if the `window` object is available
+      if (typeof window !== 'undefined') {
+        // Use a media query to detect desktop devices and adjust the dimensions
+        const desktopMediaQuery = window.matchMedia('(min-width: 768px)');
+        
+        // Merge the options with the appropriate dimensions based on the device
+        if (desktopMediaQuery.matches) {
+          opts.height = desktopDimensions.height;
+          opts.width = desktopDimensions.width;
+        } else {
+          opts.height = mobileDimensions.height;
+          opts.width = mobileDimensions.width;
+        }
+      } else {
+        // Fallback to mobile dimensions if the `window` object is not available
+        opts.height = mobileDimensions.height;
+        opts.width = mobileDimensions.width;
+      }
 
     return (
-        <div className="flex justify-center mt-10">
-            {errorDetails && (
+        <div>
+        <div className="flex justify-center mt-8 lg:mt-20">
+            {errorDetails && !movie && (
                 <div className="align-center text-center">
                     <h1 className="text-3xl">Oh No!</h1>
                     <Image
@@ -77,6 +114,24 @@ const MovieDetail = () => {
                     </div>
                 </div>
             )}
+
+                </div>
+                <div className="mt-10 text-center border-t border-stone-700">
+                    <h3 className="text-2xl mt-5">Similar Movies</h3>
+                {!movieList
+                ? (<h1>Loading...</h1>)
+                : (
+                    <div className="flex flex-row flex-wrap justify-center gap-2 p-2 lg:gap-4">
+                        {movieList.map((movie) => {
+                            return (
+                                <MovieCard key={movie.id} movie={movie} />
+                            )
+                        })}
+
+                    </div>
+
+                )}
+                </div>
         </div>
     )
 };

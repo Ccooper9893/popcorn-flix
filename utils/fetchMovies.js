@@ -17,7 +17,7 @@ const fetchMovies = async ({action, page, id}) => {
 
         case 'Trending': {
             try {
-                const response = await fetch(`https://api.themoviedb.org/3/trending/all/day?api_key=${process.env.movieKey}&page=${page}`);
+                const response = await fetch(`https://api.themoviedb.org/3/trending/movie/week?api_key=${process.env.movieKey}&page=${page}`);
                 const data = await response.json();
                 const results = data.results;
                 const filteredResults = results.filter(movie => movie.poster_path && movie.backdrop_path);
@@ -31,7 +31,7 @@ const fetchMovies = async ({action, page, id}) => {
 
         case 'Category': {
             try {
-                const response = await fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${process.env.movieKey}&language=en-US&sort_by=popularity.desc&
+                const response = await fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${process.env.movieKey}&language=en-US
                 include_adult=false&page=${page}&with_genres=${id}`);
                 const data = await response.json();
                 const results = data.results;
