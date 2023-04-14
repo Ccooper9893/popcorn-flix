@@ -17,7 +17,7 @@ const MovieCard = ({ movie }) => {
 
                     <div className="py-3 bg-stone-950">
                         <div className="w-20 absolute top-1 left-8">
-                            <div className="text-sm">{`Votes: ${movie.vote_count}`}</div>
+                            <div className="text-sm"><small>Votes: </small>{movie.vote_count}</div>
                         </div>
 
                         <div className="w-20 absolute right-3 top-1">

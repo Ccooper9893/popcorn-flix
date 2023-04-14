@@ -25,10 +25,10 @@ const Navbar = ({ children }) => {
                             alt="Popcorn Bag">
                         </Image>
                         <div className="flex flex-col">
-                        <h1 className="normal-case text-xl lg:text-2xl text-md ml-2 pt-1 text-yellow-400 font-bold">
-                            Bring Popcorn
-                        </h1>
-                        <small className="pl-3">Movie Search Engine</small>
+                            <h1 className="normal-case text-xl lg:text-2xl text-md ml-2 pt-1 text-yellow-400 font-bold">
+                                Bring Popcorn
+                            </h1>
+                            <small className="pl-3">Movie Search Engine</small>
                         </div>
                     </div>
 
@@ -36,10 +36,10 @@ const Navbar = ({ children }) => {
                     <div className="flex-none hidden lg:block mr-10">
                         <ul className="menu menu-horizontal text-md">
                             {/* <!-- Navbar menu content here --> */}
-                            <li><Link href="/trending">Trending</Link></li>
-                            <li><Link href="/popular">Popular</Link></li>
-                            <li><Link href="/toprated">Top Rated</Link></li>
-                            <li><Link href="/upcoming">Upcoming</Link></li>
+                            <li><Link href="/feature/trending">Trending</Link></li>
+                            <li><Link href="/feature/popular">Popular</Link></li>
+                            <li><Link href="/feature/toprated">Top Rated</Link></li>
+                            <li><Link href="/feature/upcoming">Latest</Link></li>
                             <li><Link href="/search">Search</Link></li>
                             <li tabIndex={0}>
                                 <a>
@@ -75,7 +75,7 @@ const Navbar = ({ children }) => {
                         <button className="btn btn-circle btn-ghost shadow shadow-black" onClick={() => router.back()}>
                             <small><span>Back</span></small>
                         </button>
-                        
+
                     </div>
 
                 </div>
@@ -111,10 +111,10 @@ const Navbar = ({ children }) => {
                             <li><Link href="/genre/western?id=37">Western</Link></li>
                         </ul>
                     </li>
-                    <li><Link href="/trending">Trending</Link></li>
-                    <li><Link href="/popular">Popular</Link></li>
-                    <li><Link href="/toprated">Top Rated</Link></li>
-                    <li><Link href="/upcoming">Upcoming</Link></li>
+                    <li><Link href="/feature/trending">Trending</Link></li>
+                    <li><Link href="/feature/popular">Popular</Link></li>
+                    <li><Link href="/feature/toprated">Top Rated</Link></li>
+                    <li><Link href="/feature/upcoming">Latest</Link></li>
                     <li><Link href="/search">Search</Link></li>
 
                 </ul>
