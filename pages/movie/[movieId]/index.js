@@ -16,9 +16,12 @@ const MovieDetail = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const { movieData, key } = await fetchMovieData(movieId);
-            setMovie(movieData);
-            setVideoKey(key);
+            const details = await fetchMovieData(movieId);
+            setMovie(details.movieData);
+            const key = details?.key
+            if (key) {
+                setVideoKey(key);
+            }
         }
 
         fetchData();
@@ -42,19 +45,16 @@ const MovieDetail = () => {
                 : (
                     <div className="w-screen">
                         <div className="grid lg:grid-cols-2 p-4">
-
                             <div className="relative">
-                            <YouTube className="rounded-2xl" videoId={videoKey} opts={opts} />
-
+                                {videoKey && <YouTube className="rounded-2xl" videoId={videoKey} opts={opts} />}
                             </div>
                             <div className="">
-                            <h1 className="font-bold text-xl text-center w-full">{movie.original_title}</h1>
-                            <p className="text-center m-6">{movie.overview}</p>
-                            <p>Release Date: {movie.release_date}</p>
-                            <Rating props={movie.vote_average}/>
+                                <h1 className="font-bold text-xl text-center w-full">{movie.original_title}</h1>
+                                <p className="text-center m-6">{movie.overview}</p>
+                                <p>Release Date: {movie.release_date}</p>
+                                <Rating props={movie.vote_average} />
                             </div>
                         </div>
-
                     </div>
                 )}
         </div>

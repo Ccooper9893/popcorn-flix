@@ -10,17 +10,17 @@ const MovieCard = ({ movie }) => {
     return (
         <div key={movie.id}>
             <Link href={"/movie/" + movie.id}>
-                <div className="lg:scale-100 hover:scale-105 scale transition-transform">
+                <div className="lg:scale-100 hover:scale-105 scale transition-transform border m-1 border-neutral-800 relative">
                     <div className="relative lg:absolute -top-6 -right-6">
                     <Rating props={movie.vote_average}/>
                     </div>
                 <Image
-                    className="rounded-xl p-1"
-                    style={{ transition: "transform .2s" }}
+                    style={{ transition: "transform 3s" }}
                     src={posterUrl}
-                    width={216}
-                    height={324}
+                    width={256}
+                    height={384}
                     alt="Movie Poster"
+                    loading="lazy"
                 >
                 </Image>
                 </div>
