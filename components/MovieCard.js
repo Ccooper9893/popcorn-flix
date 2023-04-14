@@ -6,23 +6,35 @@ import Rating from "./Rating";
 
 const MovieCard = ({ movie }) => {
     const posterUrl = `https://image.tmdb.org/t/p/original${movie.poster_path}`
-    
+
     return (
         <div key={movie.id}>
             <Link href={"/movie/" + movie.id}>
-                <div className="lg:scale-100 hover:scale-105 scale transition-transform border m-1 border-neutral-800 relative">
-                    <div className="relative lg:absolute -top-6 -right-6">
-                    <Rating props={movie.vote_average}/>
+                <div className="lg:scale-100 scale- hover:scale-105 mt-4 mx-1 transition-transform relative shadow">
+                    <div className="absolute right-56 -top-6">
+                        <Rating props={movie.vote_average} />
                     </div>
-                <Image
-                    style={{ transition: "transform 3s" }}
-                    src={posterUrl}
-                    width={256}
-                    height={384}
-                    alt="Movie Poster"
-                    loading="lazy"
-                >
-                </Image>
+
+                    <div className="py-3 bg-stone-950">
+                        <div className="w-20 absolute top-1 left-8">
+                            <div className="text-sm">{`Votes: ${movie.vote_count}`}</div>
+                        </div>
+
+                        <div className="w-20 absolute right-3 top-1">
+                            <div className="text-sm">{movie.release_date}</div>
+                        </div>
+
+                    </div>
+                    <Image
+                        className="border-t border-stone-500"
+                        style={{ transition: "transform 0.5s" }}
+                        src={posterUrl}
+                        width={256}
+                        height={384}
+                        alt="Movie Poster"
+                        loading="eager"
+                    >
+                    </Image>
                 </div>
             </Link>
         </div>

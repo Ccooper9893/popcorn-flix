@@ -15,9 +15,9 @@ const fetchMovies = async ({action, page, id}) => {
 
         break;
 
-        case 'Upcoming': {
+        case 'Trending': {
             try {
-                const response = await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${process.env.movieKey}&page=${page}`);
+                const response = await fetch(`https://api.themoviedb.org/3/trending/all/day?api_key=${process.env.movieKey}&page=${page}`);
                 const data = await response.json();
                 const results = data.results;
                 const filteredResults = results.filter(movie => movie.poster_path && movie.backdrop_path);

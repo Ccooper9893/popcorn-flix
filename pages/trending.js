@@ -3,14 +3,14 @@ import { useState, useEffect } from "react";
 import MovieCard from "@/components/MovieCard";
 import fetchMovies from "@/utils/fetchMovies";
 
-const HomePage = () => {
+const Trending = () => {
 
     const [movieList, setMovieList] = useState(null);
     const [pageNum, setPageNum] = useState(2);
 
     useEffect(() => {
         const fetchData = async () => {
-            const filteredResults = await fetchMovies({action: 'Upcoming', page: 1});
+            const filteredResults = await fetchMovies({action: 'Trending', page: 1});
             setMovieList(filteredResults);
         }
         
@@ -20,13 +20,13 @@ const HomePage = () => {
     const handlePageChange = async () => {
         setPageNum(pageNum+1);
         
-        const filteredResults = await fetchMovies({action: 'Upcoming', page: pageNum});
+        const filteredResults = await fetchMovies({action: 'Trending', page: pageNum});
         setMovieList([...movieList, ...filteredResults]);
     }
 
     return (
    
-        <div className=" bg-black">
+        <div className=" bg-black mt-6">
             {!movieList
                 ? (<h1>Loading...</h1>)
                 : (
@@ -48,4 +48,4 @@ const HomePage = () => {
     )
 };
 
-export default HomePage;
+export default Trending;

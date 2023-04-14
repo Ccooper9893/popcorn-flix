@@ -4,6 +4,8 @@ import YouTube from "react-youtube";
 import Image from "next/image";
 import fetchMovieData from "@/utils/fetchDetails";
 import Rating from "@/components/Rating";
+import emptyBucket from "../../../public/emptyBucket.webp";
+
 
 const MovieDetail = () => {
 
@@ -13,11 +15,18 @@ const MovieDetail = () => {
 
     const [movie, setMovie] = useState(null);
     const [videoKey, setVideoKey] = useState(null);
+    const [errorDetails, setErrorDetails] = useState(false)
 
     useEffect(() => {
         const fetchData = async () => {
+
             const details = await fetchMovieData(movieId);
-            setMovie(details.movieData);
+            if (details) {
+                setMovie(details?.movieData);
+            } else {
+                setErrorDetails(true)
+            }
+
             const key = details?.key
             if (key) {
                 setVideoKey(key);
@@ -29,34 +38,45 @@ const MovieDetail = () => {
 
     const opts = {
         host: "https://www.youtube-nocookie.com",
-        height: '300px',
-        width: '75%',
+        height: '250px',
+        width: '400px',
         playerVars: {
             // https://developers.google.com/youtube/player_parameters
             autoplay: 0,
-            origin: `http://localhost:3000/movie/${movieId}`
+            origin: `http://localhost:3000`
         },
     };
 
     return (
-        <div className="flex justify-center">
-            {!movie
-                ? (<h1>Loading...</h1>)
-                : (
-                    <div className="w-screen">
-                        <div className="grid lg:grid-cols-2 p-4">
-                            <div className="relative">
-                                {videoKey && <YouTube className="rounded-2xl" videoId={videoKey} opts={opts} />}
-                            </div>
-                            <div className="">
-                                <h1 className="font-bold text-xl text-center w-full">{movie.original_title}</h1>
-                                <p className="text-center m-6">{movie.overview}</p>
-                                <p>Release Date: {movie.release_date}</p>
-                                <Rating props={movie.vote_average} />
-                            </div>
+        <div className="flex justify-center mt-10">
+            {errorDetails && (
+                <div className="align-center text-center">
+                    <h1 className="text-3xl">Oh No!</h1>
+                    <Image
+                        className="rounded-lg opacity-40 m-auto my-10"
+                        src={emptyBucket}
+                        width={75}
+                        height={75}
+                        alt="Empty Popcorn Bucket">
+                    </Image>
+                    <h2 className="text-xl">Movie information not yet released! Check back later!</h2>
+                </div>
+            )}
+            {movie && (
+
+                <div className="">
+                    <div className="flex flex-col justify-center">
+
+                            {videoKey && <YouTube className="rounded-2xl m-auto" videoId={videoKey} opts={opts} />}
+                        <div className="w-4/5 lg:w-2/5 m-auto border-t">
+                        <h1 className="font-bold text-3xl text-center w-full mt-3">{movie.original_title}</h1>
+                            <p className="text-center">{movie.overview}</p>
+                            <p>Release Date: {movie.release_date}</p>
+                            <Rating props={movie.vote_average} />
                         </div>
                     </div>
-                )}
+                </div>
+            )}
         </div>
     )
 };
