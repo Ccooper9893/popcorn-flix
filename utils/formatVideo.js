@@ -2,7 +2,6 @@ const formatVideo = (mobileDimensions, desktopDimensions, autoplay) => {
 
     // https://developers.google.com/youtube/player_parameters
     const opts = {
-        host: "https://www.youtube-nocookie.com",
         playerVars: {
             autoplay,
             origin: `http://localhost:3000`

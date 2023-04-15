@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import MovieCard from "@/components/MovieCard";
-import fetchMovies from "@/utils/fetchMovies";
-import { IntersectionObserver } from "react-intersection-observer";
+import fetchMovies from "@/utils/data/movies/fetchMovies";
 
 const Trending = () => {
     const router = useRouter();

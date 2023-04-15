@@ -2,8 +2,8 @@ import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 import YouTube from "react-youtube";
 import Image from "next/image";
-import fetchMovieData from "@/utils/fetchDetails";
-import fetchSimilarMovies from "@/utils/fetchSimilar";
+import fetchSimilarMovies from "@/utils/data/movies/fetchSimilar";
+import fetchMovieData from "@/utils/data/movies/fetchDetails";
 import formatVideo from "@/utils/formatVideo";
 import Rating from "@/components/Rating";
 import emptyBucket from "../../../public/emptyBucket.webp";
@@ -18,42 +18,40 @@ const MovieDetail = () => {
     const [movie, setMovie] = useState(null);
     const [videoKey, setVideoKey] = useState(null);
     const [errorDetails, setErrorDetails] = useState(false);
-    const [movieList, setMovieList] = useState([]);
+    const [similarMovies, setSimilarMovies] = useState([]);
     const [movieGenres, setMovieGenres] = useState([]);
-    const [pageNum, setPageNum] = useState(1);
+    const [pageNum, setPageNum] = useState(2);
 
 
     useEffect(() => {
-
-        const fetchData = async () => {
-
-            const details = await fetchMovieData(movieId);
-
-            if (details) {
-                const { movieData, key } = details;
+        const fetchDetails = async () => {
+            // Get Movie Details
+            const data = await fetchMovieData(movieId);
+            if(data) {
+                const { movieData, key } = data;
                 setMovie(movieData);
                 setMovieGenres(movieData.genres);
+                key && setVideoKey(key);
 
-                const similarMoves = await fetchSimilarMovies(movieData.genres, 1);
-                setMovieList(similarMoves);
+                // Get Similar Movies
+                const similarMovieData = await fetchSimilarMovies(movieData.genres, 1);
 
-                if (key) {
-                    setVideoKey(key);
-                };
+                if(similarMovieData) {
+                    setSimilarMovies(similarMovieData);
+                }
 
             } else {
                 setErrorDetails(true);
             };
-        }
-
-        fetchData();
-
+        };
+        fetchDetails();
     }, [movieId]);
 
+    // Fetch for more similar movies
     const handlePageChange = async () => {
         setPageNum(pageNum + 1);
-        const filteredResults = await fetchSimilarMovies(movieGenres, pageNum);
-        setMovieList([...movieList, ...filteredResults]);
+        const similarMovieData = await fetchSimilarMovies(movieGenres, pageNum);
+        setSimilarMovies([...similarMovies, ...similarMovieData]);
     }
 
     // Configure options for Youtube player
@@ -62,7 +60,7 @@ const MovieDetail = () => {
         width: '350px',
     };
     const desktopDimensions = {
-        height: '400px',
+        height: '475px',
         width: '750px',
     };
     const videoOptions = formatVideo(mobileDimensions, desktopDimensions, 1);
@@ -84,33 +82,31 @@ const MovieDetail = () => {
                     </div>
                 )}
                 {movie && (
-
-                        <div className="flex flex-col justify-center">
-                            {!videoKey && <h1>No video found</h1>}
-                            {videoKey && <YouTube className="rounded-2xl m-auto" videoId={videoKey} opts={videoOptions} />}
-                            <div className="lg:w-2/5 m-auto">
-                                <h1 className="font-bold text-3xl text-center w-full mt-3">{movie.original_title}</h1>
-                                <p className="text-center">{movie.overview}</p>
-                                <p>Release Date: {movie.release_date}</p>
-                                <Rating props={movie.vote_average} />
-                            </div>
+                    <div className="flex flex-col justify-center">
+                        {!videoKey && <h1>No video found</h1>}
+                        {videoKey && <YouTube className="rounded-2xl m-auto" videoId={videoKey} opts={videoOptions} />}
+                        <div className="lg:w-2/5 m-auto">
+                            <h1 className="font-bold text-3xl text-center w-full mt-3">{movie.original_title}</h1>
+                            <p className="text-center">{movie.overview}</p>
+                            <p>Release Date: {movie.release_date}</p>
+                            <Rating props={movie.vote_average} />
                         </div>
+                    </div>
                 )}
-
             </div>
             <div className="mt-10 text-center border-t border-stone-700">
                 <h3 className="text-2xl mt-5">Similar Movies</h3>
-                {movieList && (
-                        <div className="flex flex-row flex-wrap justify-center gap-2 p-2 lg:gap-4">
-                            {movieList.map((movie) => {
-                                return (
-                                    <MovieCard key={movie.id} movie={movie} />
-                                )
-                            })}
+                {similarMovies && (
+                    <div className="flex flex-row flex-wrap justify-center gap-2 p-2 lg:gap-4">
+                        {similarMovies.map((movie) => {
+                            return (
+                                <MovieCard key={movie.id} movie={movie} />
+                            )
+                        })}
 
-                        </div>
+                    </div>
 
-                    )}
+                )}
             </div>
             <div className="p-4">
                 <button className="btn btn-small text-xs" onClick={handlePageChange}>More</button>

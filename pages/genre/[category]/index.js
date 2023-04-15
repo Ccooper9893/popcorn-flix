@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 
 import MovieCard from "@/components/MovieCard";
-import fetchMovies from "@/utils/fetchMovies";
+import fetchMovies from "@/utils/data/movies/fetchMovies";
 
 const GenreCategory = () => {
 
