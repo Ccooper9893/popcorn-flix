@@ -28,18 +28,18 @@ const Navbar = ({ children }) => {
                             <h1 className="normal-case text-xl lg:text-2xl text-md ml-2 pt-1 text-yellow-400 font-bold">
                                 Bring Popcorn
                             </h1>
-                            <small className="pl-3">Movie Search Engine</small>
+                            <small className="pl-2">Movie Search</small>
                         </div>
                     </div>
 
 
                     <div className="flex-none hidden lg:block mr-10">
-                        <ul className="menu menu-horizontal text-md">
+                        <ul className="menu menu-horizontal text-md text-white">
                             {/* <!-- Navbar menu content here --> */}
                             <li><Link href="/feature/trending">Trending</Link></li>
                             <li><Link href="/feature/popular">Popular</Link></li>
                             <li><Link href="/feature/toprated">Top Rated</Link></li>
-                            <li><Link href="/feature/upcoming">Latest</Link></li>
+                            <li><Link href="/feature/latest">Latest</Link></li>
                             <li><Link href="/search">Search</Link></li>
                             <li tabIndex={0}>
                                 <a>
@@ -114,7 +114,7 @@ const Navbar = ({ children }) => {
                     <li><Link href="/feature/trending">Trending</Link></li>
                     <li><Link href="/feature/popular">Popular</Link></li>
                     <li><Link href="/feature/toprated">Top Rated</Link></li>
-                    <li><Link href="/feature/upcoming">Latest</Link></li>
+                    <li><Link href="/feature/latest">Latest</Link></li>
                     <li><Link href="/search">Search</Link></li>
 
                 </ul>

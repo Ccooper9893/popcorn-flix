@@ -10,7 +10,7 @@ export default function App({ Component, pageProps }) {
         <title>Popcorn Flix</title>
       </Head>
       <Navbar>
-        <div className=' mt-14'>
+        <div className='h-screen mt-4'>
       <Component {...pageProps} />
       </div>
       </Navbar>

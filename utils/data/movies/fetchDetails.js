@@ -6,18 +6,18 @@ const fetchMovieData = async (movieId) => {
         //Finding trailer/teaser video key if available
         if(movieData.videos?.results.length > 0) {
             const videoArray = movieData.videos.results;
-            console.log(movieData.videos.results);
             const { key } = videoArray.find(video => video.type === 'Trailer' && video.site === 'YouTube');
             return {movieData, key};
+
         } else if (movieData.hasOwnProperty('success')) {
             return false
-        }
+        };
 
-        return {movieData}
+        return {movieData};
 
     } catch (error) {
         console.log("Movie details are unavailable at this time.");
-    }
-}
+    };
+};
 
 export default fetchMovieData;

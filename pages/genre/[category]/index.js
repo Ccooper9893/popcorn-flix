@@ -32,24 +32,24 @@ const GenreCategory = () => {
     }
 
     return (
-        <div className=" bg-black mt-6">
-            {loading
-                ? (<h1>Loading...</h1>)
-                : (
+        <div>
+            {movieList && (
+                    <div className="flex flex-col justify-center mt-14 h-full">
+                        <div className="flex flex-row flex-wrap justify-center gap-2 p-2 lg:gap-4">
+                            {movieList.map((movie) => {
+                                return (
+                                    <MovieCard key={movie.id} movie={movie} />
+                                )
+                            })}
 
-                    <div className="flex flex-row flex-wrap justify-center gap-2 p-2 lg:gap-4">
-                        {movieList.map((movie) => {
-                            return (
-                                <MovieCard key={movie.id} movie={movie} />
-                            )
-                        })}
-
+                        </div>
+                        <button className="btn btn-small text-xs m-auto mt-20" onClick={handlePageChange}>More</button>
                     </div>
-
                 )}
-            <div className="flex justify-center p-4">
-                <button className="btn btn-small text-xs" onClick={handlePageChange}>More</button>
-            </div>
+
+            {/* <IntersectionObserver onChange={handleInView}>
+            <div className="flex justify-center p-4"></div>
+        </IntersectionObserver> */}
         </div>
     )
 

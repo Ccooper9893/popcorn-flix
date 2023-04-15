@@ -1,17 +1,14 @@
-import { useState } from "react";
-
 import Image from "next/image";
 import Link from "next/link";
 import Rating from "./Rating";
 
 const MovieCard = ({ movie }) => {
     const posterUrl = `https://image.tmdb.org/t/p/original${movie.poster_path}`
-
     return (
         <div key={movie.id}>
             <Link href={"/movie/" + movie.id}>
-                <div className="lg:scale-100 scale- hover:scale-105 mt-4 mx-1 transition-transform relative shadow">
-                    <div className="absolute right-56 -top-6">
+                <div className="lg:scale-100 hover:scale-105 mx-1 transition-transform relative shadow">
+                    {/* <div className="absolute right-24 -top-6">
                         <Rating props={movie.vote_average} />
                     </div>
 
@@ -24,9 +21,9 @@ const MovieCard = ({ movie }) => {
                             <div className="text-sm">{movie.release_date}</div>
                         </div>
 
-                    </div>
+                    </div> */}
                     <Image
-                        className="border-t border-stone-500"
+                        className="border border-stone-900"
                         style={{ transition: "transform 0.5s" }}
                         src={posterUrl}
                         width={256}
@@ -36,6 +33,7 @@ const MovieCard = ({ movie }) => {
                     >
                     </Image>
                 </div>
+                {/* <button onClick={() => {localStorage.setItem('movies', movie.id )}}>Add to local storage</button> */}
             </Link>
         </div>
     )
