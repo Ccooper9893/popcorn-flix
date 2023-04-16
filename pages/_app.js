@@ -1,22 +1,21 @@
 import '@/styles/globals.css';
-import Layout from '@/components/Layout';
 import Head from 'next/head';
-import Navbar from '@/components/Navbar';
+import Navbar from '@/components/Navbar/Navbar';
 import { SearchProvider } from '@/utils/searchContext';
 
 export default function App({ Component, pageProps }) {
   return (
-    <Layout>
+    <div>
       <Head>
-        <title>Popcorn Flix</title>
+        <title>Bring Popcorn</title>
       </Head>
       <SearchProvider>
         <Navbar>
-          <div className='h-screen mt-6'>
+          <div className='h-screen mt-20'>
             <Component {...pageProps} />
           </div>
         </Navbar>
       </SearchProvider>
-    </Layout>
+      </div>
   )
 };

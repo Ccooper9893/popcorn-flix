@@ -35,7 +35,7 @@ const Trending = () => {
 
         <div>
             {movieList && movieList.length > 0 && (
-                <div className="flex flex-col justify-center mt-14">
+                <div className="flex flex-col justify-center">
                     <div className="flex flex-row flex-wrap justify-center gap-2 p-2 lg:gap-4">
                         {movieList.map((movie) => {
                             return (

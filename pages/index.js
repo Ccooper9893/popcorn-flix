@@ -26,7 +26,7 @@ const HomePage = () => {
 
     return (
    
-        <div className=" bg-black mt-6">
+        <div>
             {!movieList
                 ? (<h1>Loading...</h1>)
                 : (

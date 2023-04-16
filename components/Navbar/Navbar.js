@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import Image from "next/image";
-import logo from '../public/popcornbag.webp';
+import logo from "../../public/popcornbag.webp"
 import Link from "next/link";
 
 const Navbar = ({ children }) => {
@@ -34,7 +34,7 @@ const Navbar = ({ children }) => {
 
 
                     <div className="flex-none hidden lg:block mr-10">
-                        <ul className="menu menu-horizontal text-md text-white">
+                        <ul className="menu menu-horizontal text-md">
                             {/* <!-- Navbar menu content here --> */}
                             <li><Link href="/feature/trending">Trending</Link></li>
                             <li><Link href="/feature/popular">Popular</Link></li>

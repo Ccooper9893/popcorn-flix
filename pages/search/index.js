@@ -37,7 +37,7 @@ const Search = () => {
     };
 
     return (
-        <div className="mt-12 pb-10">
+        <div className="pb-10">
             <div className="flex flex-row justify-center">
                 <div className="py-6 relative text-gray-600">
                     <form onSubmit={searchMovies}>
@@ -59,17 +59,10 @@ const Search = () => {
                 </div>
             )}
             {!found && (
-                <div className="align-center text-center">
-                    <h2 className="text-sm">No results</h2>
-                    <Image
-                        className="rounded-lg opacity-40 m-auto my-4"
-                        src={emptyBucket}
-                        width={75}
-                        height={75}
-                        alt="Empty Popcorn Bucket">
-                    </Image>
 
-                </div>
+                    <h2 className="text-sm text-center">No results</h2>
+
+  
             )}
         </div>
     )

@@ -1,11 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
-import Rating from "./Rating";
+import Rating from "./Details/Rating";
 
 const MovieCard = ({ movie }) => {
     const posterUrl = `https://image.tmdb.org/t/p/original${movie.poster_path}`
     return (
-        <div key={movie.id}>
             <Link href={"/movie/" + movie.id}>
                 <div className="lg:scale-100 hover:scale-105 mx-1 transition-transform relative shadow">
                     {/* <div className="absolute right-24 -top-6">
@@ -26,15 +25,16 @@ const MovieCard = ({ movie }) => {
                         className="border border-stone-900 shadow-inner shadow-stone-600"
                         style={{ transition: "transform 0.5s" }}
                         src={posterUrl}
-                        width={200}
-                        height={300}
+                        width={240}
+                        height={360}
                         alt="Movie Poster"
+                        loading="eager"
                     >
                     </Image>
                 </div>
                 {/* <button onClick={() => {localStorage.setItem('movies', movie.id )}}>Add to local storage</button> */}
             </Link>
-        </div>
+
     )
 };
 

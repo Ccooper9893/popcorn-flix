@@ -4,12 +4,13 @@ import YouTube from "react-youtube";
 import Image from "next/image";
 import fetchSimilarMovies from "@/utils/fetch/movies/fetchSimilar";
 import fetchMovieData from "@/utils/fetch/movies/fetchDetails";
-import formatVideo from "@/utils/formatVideo";
-import Rating from "@/components/Rating";
+import Rating from "@/components/Details/Rating";
 import emptyBucket from "../../../public/emptyBucket.webp";
 import MovieCard from "@/components/MovieCard";
-
+import Providers from "@/components/Details/Providers";
+import MovieOverview from "@/components/Details/MovieOverview";
 const MovieDetail = () => {
+
 
     //Grabbing movie ID from url
     const router = useRouter();
@@ -25,7 +26,6 @@ const MovieDetail = () => {
 
     useEffect(() => {
         const fetchDetails = async () => {
-            //
             if (movieId !== undefined) {
                 // Get Movie Details
                 const data = await fetchMovieData(movieId);
@@ -54,20 +54,11 @@ const MovieDetail = () => {
         similarMovieData ? setSimilarMovies([...similarMovies, ...similarMovieData]) : setButton(false);
     }
 
-    // Configure options for Youtube player
-    const mobileDimensions = {
-        height: '300px',
-        width: '350px',
-    };
-    const desktopDimensions = {
-        height: '475px',
-        width: '750px',
-    };
-    const videoOptions = formatVideo(mobileDimensions, desktopDimensions, 1);
+
 
     return (
-        <div className="mt-20">
-            <div className="flex justify-center mt-8 lg:mt-20">
+        <div className="h-full">
+            <div className="flex justify-center h-full">
                 {errorDetails && (
                     <div className="align-center text-center">
                         <h1 className="text-3xl">Oh No!</h1>
@@ -81,22 +72,16 @@ const MovieDetail = () => {
                         <h2 className="text-xl">Movie information not yet released! Check back later!</h2>
                     </div>
                 )}
+
+                <div className="h-screen">
                 {movie && (
-                    <div className="flex flex-col justify-center">
-                        {!videoKey && <h1 className="text-center">No video found</h1>}
-                        {videoKey && <YouTube className="rounded-2xl m-auto" videoId={videoKey} opts={videoOptions} />}
-                        <div className="lg:w-2/5 m-auto">
-                            <h1 className="font-bold text-3xl text-center w-full mt-3">{movie.original_title}</h1>
-                            <p className="text-center">{movie.overview}</p>
-                            <p>Release Date: {movie.release_date}</p>
-                            <Rating props={movie.vote_average} />
-                        </div>
-                    </div>
+                    <MovieOverview movie={movie} videoKey={videoKey}/>
                 )}
+                </div>
             </div>
 
             {similarMovies && (
-                <div className="mt-10 text-center border-t border-stone-700 bg-black">
+                <div className="mt-10 bg-black">
                     <h3 className="text-2xl mt-5">Similar Movies</h3>
                     <div className="flex flex-row flex-wrap justify-center gap-2 p-2 lg:gap-4">
                         {similarMovies.map((movie) => {
