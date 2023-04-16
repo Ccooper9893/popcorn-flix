@@ -23,13 +23,12 @@ const MovieCard = ({ movie }) => {
 
                     </div> */}
                     <Image
-                        className="border border-stone-900"
+                        className="border border-stone-900 shadow-inner shadow-stone-600"
                         style={{ transition: "transform 0.5s" }}
                         src={posterUrl}
-                        width={256}
-                        height={384}
+                        width={200}
+                        height={300}
                         alt="Movie Poster"
-                        loading="eager"
                     >
                     </Image>
                 </div>

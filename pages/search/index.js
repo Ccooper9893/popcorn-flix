@@ -2,7 +2,7 @@ import { useState } from "react";
 import Image from "next/image";
 
 import MovieCard from "@/components/MovieCard";
-import emptyBucket from "../public/emptyBucket.webp";
+import emptyBucket from "../../public/emptyBucket.webp"
 
 const Search = () => {
 

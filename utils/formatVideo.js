@@ -5,7 +5,9 @@ const formatVideo = (mobileDimensions, desktopDimensions, autoplay) => {
         playerVars: {
             autoplay,
             origin: `http://localhost:3000`
-        }
+        },
+        height: desktopDimensions.height,
+        width: desktopDimensions.width,
     };
 
     if (typeof window !== 'undefined') {

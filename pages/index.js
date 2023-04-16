@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 import MovieCard from "@/components/MovieCard";
-import fetchMovies from "@/utils/data/movies/fetchMovies";
+import fetchMovies from "@/utils/fetch/movies/fetchMovies";
 
 const HomePage = () => {
 
@@ -10,7 +10,7 @@ const HomePage = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const filteredResults = await fetchMovies({action: 'Upcoming', page: 1});
+            const filteredResults = await fetchMovies({action: 'latest', page: 1});
             setMovieList(filteredResults);
         }
         
@@ -20,7 +20,7 @@ const HomePage = () => {
     const handlePageChange = async () => {
         setPageNum(pageNum+1);
         
-        const filteredResults = await fetchMovies({action: 'Upcoming', page: pageNum});
+        const filteredResults = await fetchMovies({action: 'latest', page: pageNum});
         setMovieList([...movieList, ...filteredResults]);
     }
 
