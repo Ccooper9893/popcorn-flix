@@ -6,7 +6,7 @@ const handler = async (req, res) => {
     const { movieId } = req.body
 
     try {
-        const response = await fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${process.env.movieKey}&language=en-US&append_to_response=videos,watch%2Fproviders`);
+        const response = await fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${process.env.MOVIE_KEY}&language=en-US&append_to_response=videos,watch%2Fproviders`);
         const movieData = await response.json();
 
         //Finding trailer/teaser video key if available

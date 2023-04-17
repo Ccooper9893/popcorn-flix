@@ -8,7 +8,7 @@ const handler = async (req, res) => {
   const { input } = req.body
 
   try {
-    const response = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.movieKey}&language=en-US&query=${input}%7D&page=1&include_adult=false`);
+    const response = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.MOVIE_KEY}&language=en-US&query=${input}%7D&page=1&include_adult=false`);
     const data = await response.json();
     const { results } = data;
 
