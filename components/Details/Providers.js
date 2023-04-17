@@ -1,24 +1,71 @@
-const Providers = () => {
+const Providers = ({ provider }) => {
     return (
+        <div className="w-3/5 mx-auto">
+            <div tabIndex={0} className="collapse shadow shadow-stone-800">
+                <div className="collapse-title px-0">
+                    Stream
+                </div>
+                <div className="collapse-content transition-transform">
+                    <div tabIndex={0}>
+                        <ul>
+                            {provider?.flatrate ? (
+                                <div>
+                            {provider.flatrate.map((service) => {
+                                return (
+                                    <l1 key={provider.id}>{service?.provider_name}, </l1>
+                                )
+                            })}
+                            </div>
+                            ) : (
+                                <p>Currently unavailable for streaming.</p>
+                            )}
 
-        <div class="text-sm font-medium text-center text-gray-500 border-b border-gray-200 dark:text-gray-400 dark:border-gray-700">
-            <ul class="flex flex-wrap -mb-px">
-                <li class="mr-2">
-                    <a href="#" class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">Profile</a>
-                </li>
-                <li class="mr-2">
-                    <a href="#" class="inline-block p-4 text-blue-600 border-b-2 border-blue-600 rounded-t-lg active dark:text-blue-500 dark:border-blue-500" aria-current="page">Dashboard</a>
-                </li>
-                <li class="mr-2">
-                    <a href="#" class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">Settings</a>
-                </li>
-                <li class="mr-2">
-                    <a href="#" class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">Contacts</a>
-                </li>
-                <li>
-                    <a class="inline-block p-4 text-gray-400 rounded-t-lg cursor-not-allowed dark:text-gray-500">Disabled</a>
-                </li>
-            </ul>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div tabIndex={1} className="collapse shadow shadow-stone-800">
+                <div className="collapse-title px-0">
+                    Rent
+                </div>
+                <div className="collapse-content transition-transform">
+                <ul>
+                            {provider?.rent ? (
+                                <div>
+                            {provider.rent.map((service) => {
+                                return (
+                                    <l1 key={provider.id}>{service?.provider_name}, </l1>
+                                )
+                            })}
+                            </div>
+                            ) : (
+                                <p>Currently unavailable for renting.</p>
+                            )}
+
+                        </ul>
+                </div>
+            </div>
+            <div tabIndex={2} className="collapse shadow shadow-stone-800">
+                <div className="collapse-title px-0">
+                    Buy
+                </div>
+                <div className="collapse-content transition-transform">
+                <ul>
+                            {provider?.buy ? (
+                                <div>
+                            {provider.buy.map((service) => {
+                                return (
+                                    <l1 key={provider.id}>{service?.provider_name}, </l1>
+                                )
+                            })}
+                            </div>
+                            ) : (
+                                <p>Currently unavailable for buying.</p>
+                            )}
+
+                        </ul>
+                </div>
+            </div>
         </div>
 
     )

@@ -28,10 +28,9 @@ const Navbar = ({ children }) => {
                             <h1 className="normal-case text-xl lg:text-2xl text-md ml-2 pt-1 text-yellow-400 font-bold">
                                 Bring Popcorn
                             </h1>
-                            <small className="pl-2">Movie Search</small>
+                            <small className="pl-2">Movie Search Engine</small>
                         </div>
                     </div>
-
 
                     <div className="flex-none hidden lg:block mr-10">
                         <ul className="menu menu-horizontal text-md">
@@ -67,17 +66,13 @@ const Navbar = ({ children }) => {
                                     <li><Link href="/genre/western?id=37">Western</Link></li>
                                 </ul>
                             </li>
-
                         </ul>
                     </div>
-
                     <div className="mr-2 flex flex-row justify-end">
                         <button className="btn btn-circle btn-ghost shadow shadow-black" onClick={() => router.back()}>
                             <small><span>Back</span></small>
                         </button>
-
                     </div>
-
                 </div>
                 {children}
             </div>
@@ -116,9 +111,7 @@ const Navbar = ({ children }) => {
                     <li><Link href="/feature/toprated">Top Rated</Link></li>
                     <li><Link href="/feature/latest">Latest</Link></li>
                     <li><Link href="/search">Search</Link></li>
-
                 </ul>
-
             </div>
         </div>
     )

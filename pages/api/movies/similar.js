@@ -10,13 +10,12 @@ const handler = async (req, res) => {
     let encoded = encodeURIComponent(string);
 
     try {
-        const response = await fetch(`https://api.themoviedb.org/3/movie/${movieId}/similar?api_key=${process.env.movieKey}&language=en-US&page=${page}`);
-        // const response = await fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${process.env.movieKey}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_genres=${encoded}&original_language=en`);
+        // const response = await fetch(`https://api.themoviedb.org/3/movie/${movieId}/similar?api_key=${process.env.movieKey}&language=en-US&page=${page}`);
+        const response = await fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${process.env.movieKey}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_genres=${encoded}&original_language=en`);
         // const response = await fetch(`https://api.themoviedb.org/3/movie/${id}/recommendations?api_key=${process.env.movieKey}&language=en-US&page=1`);
 
         const { results } = await response.json();
         const filteredResults = results.filter(movie => movie.poster_path && movie.backdrop_path && movie.id !== movieId);
-
         res.status(200).json(filteredResults);
 
     } catch (error) {

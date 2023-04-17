@@ -1,40 +1,75 @@
 import YouTube from "react-youtube";
 import formatVideo from "@/utils/formatVideo";
 import Rating from "./Rating";
-import MovieCard from "../MovieCard";
 import SimilarMovies from "./SimilarMovies";
+import Providers from "./Providers";
+import { useEffect, useState } from "react";
+const MovieOverview = ({ movie, videoKey, similarMovies, button, handlePageChange }) => {
 
-const MovieOverview = ({ movie, videoKey, similarMovies, button }) => {
+    const [overViewTab, setOverviewTab] = useState(true);
+    const [providersTab, setProvidersTab] = useState(false);
+    const [similarTab, setSimilarTab] = useState(false);
+
+    useEffect(() => {
+        setSimilarTab(false);
+        setProvidersTab(false);
+        setOverviewTab(true);
+    }, [movie])
+
+    //Format revenue $$$
+    const formatter = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
+        minimumFractionDigits: 0,
+      });
+
+    const revenue = formatter.format(movie.revenue);
+    const budget = formatter.format(movie.budget);
+    
 
     // Configure options for Youtube player
     const mobileDimensions = {
-        height: '300px',
+        height: '275px',
         width: '350px',
     };
     const desktopDimensions = {
-        height: '575px',
+        height: '500px',
         width: '850px',
     };
     const videoOptions = formatVideo(mobileDimensions, desktopDimensions, 1);
 
     return (
-        <div className="flex flex-col lg:flex-row lg:mx-10">
+        <div className="flex flex-col m-4">
             {!videoKey && <h1 className="text-center">No videos found</h1>}
-            {videoKey && <YouTube className="rounded-2xl mx-auto mt-2" videoId={videoKey} opts={videoOptions} />}
-            <div className="flex flex-col md:flex-row flex-wrap gap-24">
-                <div>
+            {videoKey && <YouTube className="mx-auto mt-2" videoId={videoKey} opts={videoOptions} />}
+            <div className="flex flex-col mt-4">
+
                     <div className="tabs align-top justify-center">
-                        <a className="tab tab-bordered tab-active">Overview</a>
-                        <a className="tab tab-bordered">Providers</a>
-                        <a className="tab tab-bordered">Similar</a>
+                        <a className={overViewTab ? 'tab tab-bordered tab-active text-yellow-600 font-bold lg:text-xl' : 'tab tab-bordered lg:text-xl'} onClick={() => { setOverviewTab(true); setProvidersTab(false); setSimilarTab(false); }}>Overview</a>
+                        <a className={providersTab ? 'tab tab-bordered tab-active text-yellow-600 font-bold lg:text-xl' : 'tab tab-bordered lg:text-xl'} onClick={() => { setOverviewTab(false); setProvidersTab(true); setSimilarTab(false); }}>Providers</a>
+                        <a className={similarTab ? 'tab tab-bordered tab-active text-yellow-600 font-bold lg:text-xl' : 'tab tab-bordered lg:text-xl'} onClick={() => { setOverviewTab(false); setProvidersTab(false); setSimilarTab(true); }}>Similar</a>
                     </div>
-                    <div className="text-center mx-8">
-                        <Rating vote={movie.vote_average} />
-                        <h1 className="md:text-xl font-bold">{movie.original_title}</h1>
-                        <p className="text-xs md:text-sm lg:text-sm">{movie.overview}</p>
-                        {/* <SimilarMovies similarMovies={similarMovies} /> */}
+                    <div className="text-center">
+                        {overViewTab && (
+                            <div className="mt-3">
+                                <h1 className="text-lg md:text-2xl">{movie.original_title}</h1>
+                                <p className="text-sm lg:w-3/5 mx-auto">{movie.overview}</p>
+                                <Rating vote={movie.vote_average} />
+                                <h2 className="text-sm">Votes:  {movie.vote_count}</h2>
+                                <h2 className="text-sm">Released: {movie.release_date}</h2>
+                                <h2 className="text-sm">Revenue: {revenue}<small></small></h2>
+                                <h2 className="text-sm">Budget: {budget}<small></small></h2>
+                            </div>
+                        )}
+                        {providersTab && (
+                            <div className="w-full">
+                            <Providers provider={movie["watch/providers"].results.US}/>
+                            </div>
+                        )}
+                        {similarTab && (
+                            <SimilarMovies similarMovies={similarMovies} button={button} handlePageChange={handlePageChange}/>
+                        )}
                     </div>
-                </div>
             </div>
         </div>
     )

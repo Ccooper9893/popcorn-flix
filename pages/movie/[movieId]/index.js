@@ -54,8 +54,6 @@ const MovieDetail = () => {
         similarMovieData ? setSimilarMovies([...similarMovies, ...similarMovieData]) : setButton(false);
     }
 
-
-
     return (
         <div className="h-full">
             <div className="flex justify-center">
@@ -72,10 +70,8 @@ const MovieDetail = () => {
                         <h2 className="text-xl">Movie information not yet released! Check back later!</h2>
                     </div>
                 )}
-
-
                 {movie && (
-                    <MovieOverview movie={movie} similarMovies={similarMovies} videoKey={videoKey} button={button}/>
+                    <MovieOverview movie={movie} similarMovies={similarMovies} videoKey={videoKey} button={button} handlePageChange={handlePageChange}/>
                 )}
             </div>
 
