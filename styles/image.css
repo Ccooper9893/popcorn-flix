@@ -1,11 +1,12 @@
 .poster-image {
-    width: 260px;
-    height: 380px;
+  width: 260px;
+  height: 380px;
 }
 
 @media (min-width: 435px) {
-    .poster-image {
-      width: 240px;
-      height: 360px;
-    }
+  .poster-image {
+    width: 240px;
+    height: 360px;
   }
+}
+

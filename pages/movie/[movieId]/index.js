@@ -1,16 +1,12 @@
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
-import YouTube from "react-youtube";
 import Image from "next/image";
 import fetchSimilarMovies from "@/utils/fetch/movies/fetchSimilar";
 import fetchMovieData from "@/utils/fetch/movies/fetchDetails";
-import Rating from "@/components/Details/Rating";
 import emptyBucket from "../../../public/emptyBucket.webp";
-import MovieCard from "@/components/MovieCard";
-import Providers from "@/components/Details/Providers";
 import MovieOverview from "@/components/Details/MovieOverview";
-const MovieDetail = () => {
 
+const MovieDetail = () => {
 
     //Grabbing movie ID from url
     const router = useRouter();

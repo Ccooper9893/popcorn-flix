@@ -14,7 +14,7 @@
 
 body {
   background-image: linear-gradient(
-    #220101,
+    #470000,
     black
   );
   height: 100vh;
@@ -34,5 +34,89 @@ body {
     border-radius: 10px;
   }
   
+}
+
+/* Popcorn images */
+.popcornSlow1 {
+  width: 17px;
+  height: 17px;
+  /* Define animation */
+  animation-name: floatDownSlow1;
+  animation-duration: 8s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.popcornSlow2 {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  /* Define animation */
+  animation-name: floatDownSlow1;
+  animation-duration: 11s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.popcornSlow3 {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  /* Define animation */
+  animation-name: floatDownSlow2;
+  animation-duration: 16s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.popcornSlow4 {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  /* Define animation */
+  animation-name: floatDownSlow1;
+  animation-duration: 15s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.popcornSlow5 {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  /* Define animation */
+  animation-name: floatDownSlow2;
+  animation-duration: 14s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.popcornSlow6 {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  /* Define animation */
+  animation-name: floatDownSlow1;
+  animation-duration: 17s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes floatDownSlow1 {
+  0% {
+    transform: translateY(-110%) rotate(0deg);
+  }
+  100% {
+    transform: translateY(110vh) rotate(360deg); /* Adjust to desired distance */
+  }
+}
+
+@keyframes floatDownSlow2 {
+  0% {
+    transform: translateY(-106%) rotate(360deg);
+  }
+  100% {
+    transform: translateY(110vh) rotate(0deg); /* Adjust to desired distance */
+  }
 }
 
