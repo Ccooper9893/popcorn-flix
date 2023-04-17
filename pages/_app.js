@@ -11,7 +11,7 @@ export default function App({ Component, pageProps }) {
       </Head>
       <SearchProvider>
         <Navbar>
-          <div className='h-screen pt-14 lg:pt-20'>
+          <div className='h-screen pt-20 lg:pt-20'>
             <Component {...pageProps} />
           </div>
         </Navbar>

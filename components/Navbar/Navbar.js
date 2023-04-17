@@ -35,6 +35,7 @@ const Navbar = ({ children }) => {
                     <div className="flex-none hidden lg:block mr-10">
                         <ul className="menu menu-horizontal text-md">
                             {/* <!-- Navbar menu content here --> */}
+                            <li><Link href="/">Upcoming</Link></li>
                             <li><Link href="/feature/trending">Trending</Link></li>
                             <li><Link href="/feature/popular">Popular</Link></li>
                             <li><Link href="/feature/toprated">Top Rated</Link></li>
@@ -106,6 +107,7 @@ const Navbar = ({ children }) => {
                             <li><Link href="/genre/western?id=37">Western</Link></li>
                         </ul>
                     </li>
+                    <li><Link href="/">Upcoming</Link></li>
                     <li><Link href="/feature/trending">Trending</Link></li>
                     <li><Link href="/feature/popular">Popular</Link></li>
                     <li><Link href="/feature/toprated">Top Rated</Link></li>
