@@ -10,8 +10,8 @@ const MovieCard = ({ movie }) => {
                         className="border border-stone-900 shadow-inner shadow-stone-600"
                         style={{ transition: "transform 0.5s" }}
                         src={posterUrl}
-                        width={220}
-                        height={330}
+                        width={260}
+                        height={390}
                         alt="Movie Poster"
                         loading="eager"
                     >

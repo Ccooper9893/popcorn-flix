@@ -29,8 +29,8 @@ const MovieOverview = ({ movie, videoKey, similarMovies, button, handlePageChang
 
     // Configure options for Youtube player
     const mobileDimensions = {
-        height: '275px',
-        width: '350px',
+        height: '300px',
+        width: '425px',
     };
     const desktopDimensions = {
         height: '500px',
