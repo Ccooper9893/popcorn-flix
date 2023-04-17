@@ -6,12 +6,12 @@ import emptyBucket from "../../../public/emptyBucket.webp";
 import Image from "next/image";
 
 const Trending = () => {
-    const router = useRouter();
-    const category = router.query.category;
     const [movieList, setMovieList] = useState(null);
     const [pageNum, setPageNum] = useState(2);
     const [error, setError] = useState(false);
     const [button, setButton] = useState(true);
+    const router = useRouter();
+    const category = router.query.category;
 
     useEffect(() => {
         const fetchData = async () => {
@@ -19,7 +19,7 @@ const Trending = () => {
                 const filteredResults = await fetchMovies({ action: category, page: 1 });
                 filteredResults && setMovieList(filteredResults);
                 !filteredResults && setError(true);
-            }
+            };
         };
 
         fetchData();
@@ -29,7 +29,7 @@ const Trending = () => {
         setPageNum(pageNum + 1);
         const filteredResults = await fetchMovies({ action: category, page: pageNum });
         filteredResults ? setMovieList([...movieList, ...filteredResults]) : setButton(false);
-    }
+    };
 
     return (
 
@@ -56,7 +56,6 @@ const Trending = () => {
                         height={75}
                         alt="Empty Popcorn Bucket">
                     </Image>
-
                 </div>
             )}
         </div>

@@ -58,7 +58,7 @@ const MovieDetail = () => {
 
     return (
         <div className="h-full">
-            <div className="flex justify-center h-full">
+            <div className="flex justify-center">
                 {errorDetails && (
                     <div className="align-center text-center">
                         <h1 className="text-3xl">Oh No!</h1>
@@ -73,26 +73,11 @@ const MovieDetail = () => {
                     </div>
                 )}
 
-                <div className="h-screen">
-                {movie && (
-                    <MovieOverview movie={movie} videoKey={videoKey}/>
-                )}
-                </div>
-            </div>
 
-            {similarMovies && (
-                <div className="mt-10 bg-black">
-                    <h3 className="text-2xl mt-5">Similar Movies</h3>
-                    <div className="flex flex-row flex-wrap justify-center gap-2 p-2 lg:gap-4">
-                        {similarMovies.map((movie) => {
-                            return (
-                                <MovieCard key={movie.id} movie={movie} />
-                            )
-                        })}
-                    </div>
-                    {button && (<button className="btn btn-wide text-xs m-auto my-10" onClick={handlePageChange}>More</button>)}
-                </div>
-            )}
+                {movie && (
+                    <MovieOverview movie={movie} similarMovies={similarMovies} videoKey={videoKey} button={button}/>
+                )}
+            </div>
 
         </div>
     )
