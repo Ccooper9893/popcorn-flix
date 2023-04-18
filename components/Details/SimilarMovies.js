@@ -4,7 +4,7 @@ const SimilarMovies = ({ similarMovies, button, handlePageChange }) => {
     return (
         <div>
             {similarMovies && (
-                <div className="mx-4 lg:mx-20">
+                <div className="mb-6 lg:mx-10">
                     {/* <div className="flex flex-row flex-wrap justify-center gap-2 p-2 lg:gap-4"> */}
                     <div className="carousel carousel-center w-full">
                         {similarMovies.map((movie) => {

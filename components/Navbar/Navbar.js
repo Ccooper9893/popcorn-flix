@@ -2,6 +2,7 @@ import { useRouter } from "next/router";
 import Image from "next/image";
 import logo from "../../public/popcornbag.webp"
 import Link from "next/link";
+import PopcornFall from "../misc/PopcornFall";
 
 const Navbar = ({ children }) => {
     const router = useRouter();
@@ -16,7 +17,7 @@ const Navbar = ({ children }) => {
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-6 h-6 stroke-current"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
                         </label>
                     </div>
-                    <div className="ml-2">
+                    <Link href="/" className="ml-2">
                         <Image
                             className="rounded-lg"
                             src={logo}
@@ -30,7 +31,7 @@ const Navbar = ({ children }) => {
                             </h1>
                             <small className="pl-2">Movie Search Engine</small>
                         </div>
-                    </div>
+                    </Link>
 
                     <div className="flex-none hidden lg:block mr-10">
                         <ul className="menu menu-horizontal text-md">
@@ -75,6 +76,7 @@ const Navbar = ({ children }) => {
                         </button>
                     </div>
                 </div>
+                <PopcornFall />
                 {children}
             </div>
             <div className="drawer-side">
@@ -107,6 +109,7 @@ const Navbar = ({ children }) => {
                             <li><Link href="/genre/western?id=37">Western</Link></li>
                         </ul>
                     </li>
+
                     <li><Link href="/browse/nowplaying">Upcoming</Link></li>
                     <li><Link href="/browse/trending">Trending</Link></li>
                     <li><Link href="/browse/popular">Popular</Link></li>

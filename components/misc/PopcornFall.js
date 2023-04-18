@@ -14,7 +14,7 @@ const PopcornFall = () => {
             src={popcorn2}
             alt="Popcorn falling down">
         </Image>
-        <Image
+        {/* <Image
             className="popcornSlow3 absolute -top-24 left-56 opacity-90"
             src={popcorn}
             alt="Popcorn falling down">
@@ -23,7 +23,7 @@ const PopcornFall = () => {
             className="popcornSlow6 absolute -top-28 right-72"
             src={popcorn2}
             alt="Popcorn falling down">
-        </Image>
+        </Image> */}
         <Image
             className="popcornSlow4 absolute -top-6 right-8 opacity-90"
             src={popcorn}
@@ -39,11 +39,11 @@ const PopcornFall = () => {
             src={popcorn2}
             alt="Popcorn falling down">
         </Image>
-        <Image
+        {/* <Image
             className="popcornSlow4 absolute -top-8 left-1/3"
             src={popcorn}
             alt="Popcorn falling down">
-        </Image>
+        </Image> */}
         </>
     )
 };

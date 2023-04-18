@@ -14,7 +14,7 @@
 
 body {
   background-image: linear-gradient(
-    #470000,
+    #2f0000,
     black
   );
   height: 100vh;
@@ -42,7 +42,7 @@ body {
   height: 17px;
   /* Define animation */
   animation-name: floatDownSlow1;
-  animation-duration: 8s;
+  animation-duration: 20s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
@@ -53,7 +53,7 @@ body {
   height: 20px;
   /* Define animation */
   animation-name: floatDownSlow1;
-  animation-duration: 11s;
+  animation-duration: 14s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
@@ -75,7 +75,7 @@ body {
   height: 18px;
   /* Define animation */
   animation-name: floatDownSlow1;
-  animation-duration: 15s;
+  animation-duration: 23s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
@@ -86,7 +86,7 @@ body {
   height: 20px;
   /* Define animation */
   animation-name: floatDownSlow2;
-  animation-duration: 14s;
+  animation-duration: 26s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
@@ -97,7 +97,7 @@ body {
   height: 28px;
   /* Define animation */
   animation-name: floatDownSlow1;
-  animation-duration: 17s;
+  animation-duration: 18s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
@@ -107,7 +107,7 @@ body {
     transform: translateY(-110%) rotate(0deg);
   }
   100% {
-    transform: translateY(110vh) rotate(360deg); /* Adjust to desired distance */
+    transform: translateY(150vh) rotate(360deg); /* Adjust to desired distance */
   }
 }
 
@@ -116,7 +116,7 @@ body {
     transform: translateY(-106%) rotate(360deg);
   }
   100% {
-    transform: translateY(110vh) rotate(0deg); /* Adjust to desired distance */
+    transform: translateY(150vh) rotate(0deg); /* Adjust to desired distance */
   }
 }
 
