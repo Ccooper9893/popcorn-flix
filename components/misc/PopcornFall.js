@@ -5,17 +5,17 @@ const PopcornFall = () => {
     return (
         <>
         <Image
-            className="popcornSlow1 absolute -top-12 left-24 opacity-90"
+            className="popcornSlow1 absolute -top-12 left-24 opacity-60"
             src={popcorn}
             alt="Popcorn falling down">
         </Image>
         <Image
-            className="popcornSlow2 absolute -top-12 right-52"
+            className="popcornSlow2 absolute -top-12 right-52 opacity-60"
             src={popcorn2}
             alt="Popcorn falling down">
         </Image>
         {/* <Image
-            className="popcornSlow3 absolute -top-24 left-56 opacity-90"
+            className="popcornSlow3 absolute -top-24 left-56 opacity-60"
             src={popcorn}
             alt="Popcorn falling down">
         </Image>
@@ -25,17 +25,17 @@ const PopcornFall = () => {
             alt="Popcorn falling down">
         </Image> */}
         <Image
-            className="popcornSlow4 absolute -top-6 right-8 opacity-90"
+            className="popcornSlow4 absolute -top-6 right-8 opacity-60"
             src={popcorn}
             alt="Popcorn falling down">
         </Image>
         <Image
-            className="popcornSlow3 absolute -top-80 right-1/2"
+            className="popcornSlow3 absolute -top-80 right-1/2 opacity-60"
             src={popcorn2}
             alt="Popcorn falling down">
         </Image>
         <Image
-            className="popcornSlow5 absolute -top-36 right-96 opacity-90"
+            className="popcornSlow5 absolute -top-36 right-96 opacity-60"
             src={popcorn2}
             alt="Popcorn falling down">
         </Image>
