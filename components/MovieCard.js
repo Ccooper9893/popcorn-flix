@@ -19,7 +19,6 @@ const MovieCard = ({ movie }) => {
                 </div>
                 {/* <button onClick={() => {localStorage.setItem('movies', movie.id )}}>Add to local storage</button> */}
             </Link>
-
     )
 };
 
