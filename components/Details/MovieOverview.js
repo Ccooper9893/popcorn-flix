@@ -41,7 +41,7 @@ const MovieOverview = ({ movie, videoKey, similarMovies, button, handlePageChang
     return (
         <div className="flex flex-col mt-6 mx-4">
             {!videoKey && <h1 className="text-center">No videos found</h1>}
-            {videoKey && <YouTube className="mx-auto mt-2 z-20 shadow-lg shado shadow-black" videoId={videoKey} opts={videoOptions} />}
+            {videoKey && <YouTube className="mx-auto mt-2 z-50 shadow-lg shado shadow-black" videoId={videoKey} opts={videoOptions} />}
             <div className="flex flex-col mt-4">
                 {overViewTab && <h1 className="text-2xl text-center text-white font-bold md:text-2xl">{movie.original_title}</h1>}
                 <div className="tabs align-top justify-center">
