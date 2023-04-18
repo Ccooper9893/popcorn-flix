@@ -7,14 +7,15 @@ import PopcornFall from "../misc/PopcornFall";
 import { useRef } from "react";
 
 const Navbar = ({ children }) => {
+    
     const router = useRouter();
-    const [isDrawerOpen, setDrawerOpen] = useState(false);
     const drawerRef = useRef(null);
+
     const toggle = () => {
         // Use the current property of the ref to access the input element
-        // and set the defaultChecked attribute to false
         drawerRef.current.checked = false;
     };
+
     return (
         <div className="drawer">
             <input id="my-drawer-3" type="checkbox" className="drawer-toggle" ref={drawerRef} />
