@@ -3,8 +3,6 @@ import fetch from "node-fetch";
 
 const handler = async (req, res) => {
   const { action, page, id } = req.body;
-  console.log('Fetch called');
-  console.log(action, page, id);
   try {
     switch (action) {
       case 'latest': {
@@ -36,7 +34,6 @@ const handler = async (req, res) => {
           const response = await fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.MOVIE_KEY}&language=en-US&page=${page}&region=US`);
           const { results } = await response.json();
           const filteredResults = results.filter(movie => movie.poster_path && movie.backdrop_path);
-          console.log(filteredResults);
           res.status(200).json(filteredResults);
         };
           break;

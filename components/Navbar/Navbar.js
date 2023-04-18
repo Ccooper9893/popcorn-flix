@@ -1,17 +1,26 @@
 import { useRouter } from "next/router";
+import { useState } from "react";
 import Image from "next/image";
 import logo from "../../public/popcornbag.webp"
 import Link from "next/link";
 import PopcornFall from "../misc/PopcornFall";
+import { useRef } from "react";
 
 const Navbar = ({ children }) => {
     const router = useRouter();
+    const [isDrawerOpen, setDrawerOpen] = useState(false);
+    const drawerRef = useRef(null);
+    const toggle = () => {
+        // Use the current property of the ref to access the input element
+        // and set the defaultChecked attribute to false
+        drawerRef.current.checked = false;
+    };
     return (
         <div className="drawer">
-            <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
+            <input id="my-drawer-3" type="checkbox" className="drawer-toggle" ref={drawerRef} />
             <div className="drawer-content flex flex-col">
                 {/* <!-- Navbar --> */}
-                <div className="navbar fixed bg-stone-900 z-50 justify-between shadow-md shadow-black">
+                <div className="navbar fixed bg-stone-900 z-40 justify-between shadow-md shadow-black">
                     <div className="flex-none lg:hidden">
                         <label htmlFor="my-drawer-3" className="btn btn-square btn-ghost">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-6 h-6 stroke-current"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
@@ -89,33 +98,33 @@ const Navbar = ({ children }) => {
                             <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" /></svg>
                         </a>
                         <ul className="text-xs bg-stone-900">
-                            <li><Link href="/genre/action?id=28">Action</Link></li>
-                            <li><Link href="/genre/adventure?id=12">Adventure</Link></li>
-                            <li><Link href="/genre/animation?id=16">Animation</Link></li>
-                            <li><Link href="/genre/comedy?id=35">Comedy</Link></li>
-                            <li><Link href="/genre/crime?id=80">Crime</Link></li>
-                            <li><Link href="/genre/documentary?id=99">Documentary</Link></li>
-                            <li><Link href="/genre/drama?id=18">Drama</Link></li>
-                            <li><Link href="/genre/family?id=10751">Family</Link></li>
-                            <li><Link href="/genre/fantasy?id=14">Fantasy</Link></li>
-                            <li><Link href="/genre/history?id=36">History</Link></li>
-                            <li><Link href="/genre/horror?id=27">Horror</Link></li>
-                            <li><Link href="/genre/music?id=10402">Music</Link></li>
-                            <li><Link href="/genre/mystery?id=9648">Mystery</Link></li>
-                            <li><Link href="/genre/romance?id=10749">Romance</Link></li>
-                            <li><Link href="/genre/sciencefiction?id=878">Science Fiction</Link></li>
-                            <li><Link href="/genre/thriller?id=53">Thriller</Link></li>
-                            <li><Link href="/genre/war?id=10752">War</Link></li>
-                            <li><Link href="/genre/western?id=37">Western</Link></li>
+                            <li><Link onClick={toggle} href="/genre/action?id=28">Action</Link></li>
+                            <li><Link onClick={toggle} href="/genre/adventure?id=12">Adventure</Link></li>
+                            <li><Link onClick={toggle} href="/genre/animation?id=16">Animation</Link></li>
+                            <li><Link onClick={toggle} href="/genre/comedy?id=35">Comedy</Link></li>
+                            <li><Link onClick={toggle} href="/genre/crime?id=80">Crime</Link></li>
+                            <li><Link onClick={toggle} href="/genre/documentary?id=99">Documentary</Link></li>
+                            <li><Link onClick={toggle} href="/genre/drama?id=18">Drama</Link></li>
+                            <li><Link onClick={toggle} href="/genre/family?id=10751">Family</Link></li>
+                            <li><Link onClick={toggle} href="/genre/fantasy?id=14">Fantasy</Link></li>
+                            <li><Link onClick={toggle} href="/genre/history?id=36">History</Link></li>
+                            <li><Link onClick={toggle} href="/genre/horror?id=27">Horror</Link></li>
+                            <li><Link onClick={toggle} href="/genre/music?id=10402">Music</Link></li>
+                            <li><Link onClick={toggle} href="/genre/mystery?id=9648">Mystery</Link></li>
+                            <li><Link onClick={toggle} href="/genre/romance?id=10749">Romance</Link></li>
+                            <li><Link onClick={toggle} href="/genre/sciencefiction?id=878">Science Fiction</Link></li>
+                            <li><Link onClick={toggle} href="/genre/thriller?id=53">Thriller</Link></li>
+                            <li><Link onClick={toggle} href="/genre/war?id=10752">War</Link></li>
+                            <li><Link onClick={toggle} href="/genre/western?id=37">Western</Link></li>
                         </ul>
                     </li>
 
-                    <li><Link href="/browse/nowplaying">Upcoming</Link></li>
-                    <li><Link href="/browse/trending">Trending</Link></li>
-                    <li><Link href="/browse/popular">Popular</Link></li>
-                    <li><Link href="/browse/toprated">Top Rated</Link></li>
-                    <li><Link href="/browse/latest">Latest</Link></li>
-                    <li><Link href="/search">Search</Link></li>
+                    <li><Link onClick={toggle} href="/browse/nowplaying">Upcoming</Link></li>
+                    <li><Link onClick={toggle} href="/browse/trending">Trending</Link></li>
+                    <li><Link onClick={toggle} href="/browse/popular">Popular</Link></li>
+                    <li><Link onClick={toggle} href="/browse/toprated">Top Rated</Link></li>
+                    <li><Link onClick={toggle} href="/browse/latest">Latest</Link></li>
+                    <li><Link onClick={toggle} href="/search">Search</Link></li>
                 </ul>
             </div>
         </div>

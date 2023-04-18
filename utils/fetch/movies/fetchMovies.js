@@ -1,5 +1,4 @@
 const fetchMovies = async ({ action, page, id }) => {
-    console.log('fetch called');
     try {
         const response = await fetch('/api/movies/browse', {
             method: 'POST',

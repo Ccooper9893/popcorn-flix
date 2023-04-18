@@ -3,7 +3,6 @@ import Link from "next/link";
 
 const MovieCard = ({ movie }) => {
     const posterUrl = `https://image.tmdb.org/t/p/original${movie.poster_path}`
-    console.log(movie.id, movie.poster_path);
     return (
             <Link href={"/movie/" + movie.id}>
                 <div className="lg:scale-100 hover:scale-105 mx-1 transition-transform relative shadow">

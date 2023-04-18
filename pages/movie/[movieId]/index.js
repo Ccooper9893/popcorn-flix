@@ -30,7 +30,6 @@ const MovieDetail = () => {
                     setMovie(movieData);
                     setMovieGenres(movieData.genres);
                     key && setVideoKey(key);
-                    console.log(movieData);
                     // Get Similar Movies
                     const similarMovieData = await fetchSimilarMovies(movieId, movieData.genres, 1);
                     similarMovieData && setSimilarMovies(similarMovieData);
