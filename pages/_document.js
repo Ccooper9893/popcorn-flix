@@ -5,7 +5,7 @@ export default function Document() {
       <Head>
       <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Thasadith&display=swap" rel="stylesheet" />
       </Head>
       <body className='h-screen'>
         <Main />
