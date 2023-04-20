@@ -1,4 +1,3 @@
-import MovieCard from "@/components/MovieCard";
 import SimilarMovies from "@/components/Details/SimilarMovies";
 
 const HomePage = () => {
