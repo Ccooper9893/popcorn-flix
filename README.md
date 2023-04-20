@@ -1,6 +1,8 @@
 ## Bring Popcorn
 ![Badge image](https://img.shields.io/badge/license-MIT-green)
 
+https://bring-popcorn.vercel.app/
+
 ## *Description*
 ___
 Bring Popcorn Movie Website is a web application that helps users find "popcorn-worthy" movies by utilizing the IMDb API. The project is built using Next.js, a popular React framework, to ensure good SEO (Search Engine Optimization), caching, and faster loading speeds for an optimal user experience. The user interface is designed using Daisy UI, a CSS framework that provides a collection of ready-to-use UI components, giving the website a unique and visually appealing brand.
