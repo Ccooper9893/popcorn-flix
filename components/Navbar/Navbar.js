@@ -11,6 +11,12 @@ const Navbar = ({ children }) => {
     const router = useRouter();
     const drawerRef = useRef(null);
 
+    const [dropdownOpen, setDropdownOpen] = useState(false);
+
+    const openDropdown = () => {
+        setDropdownOpen(!dropdownOpen);
+    };
+
     const toggle = () => {
         // Use the current property of the ref to access the input element
         drawerRef.current.checked = false;
@@ -57,7 +63,7 @@ const Navbar = ({ children }) => {
                                     Genres
                                     <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" /></svg>
                                 </a>
-                                <ul className="p-2 text-xs bg-stone-900 drop-shadow-sm shadow-white z-50">
+                                <ul className="p-2 text-xs bg-stone-900 z-50">
                                     <li><Link href="/genre/action?id=28">Action</Link></li>
                                     <li><Link href="/genre/adventure?id=12">Adventure</Link></li>
                                     <li><Link href="/genre/animation?id=16">Animation</Link></li>
@@ -93,30 +99,30 @@ const Navbar = ({ children }) => {
                 <label htmlFor="my-drawer-3" className="drawer-overlay"></label>
                 <ul className="menu p-4 w-40 bg-stone-900 drop-shadow-sm shadow-white">
                     {/* <!-- Sidebar content here --> */}
-                    <li tabIndex={0}>
+                    <li tabIndex={0} onClick={openDropdown}>
                         <a>
                             Genres
                             <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" /></svg>
                         </a>
-                        <ul className="text-xs bg-stone-900">
-                            <li><Link onClick={toggle} href="/genre/action?id=28">Action</Link></li>
-                            <li><Link onClick={toggle} href="/genre/adventure?id=12">Adventure</Link></li>
-                            <li><Link onClick={toggle} href="/genre/animation?id=16">Animation</Link></li>
-                            <li><Link onClick={toggle} href="/genre/comedy?id=35">Comedy</Link></li>
-                            <li><Link onClick={toggle} href="/genre/crime?id=80">Crime</Link></li>
-                            <li><Link onClick={toggle} href="/genre/documentary?id=99">Documentary</Link></li>
-                            <li><Link onClick={toggle} href="/genre/drama?id=18">Drama</Link></li>
-                            <li><Link onClick={toggle} href="/genre/family?id=10751">Family</Link></li>
-                            <li><Link onClick={toggle} href="/genre/fantasy?id=14">Fantasy</Link></li>
-                            <li><Link onClick={toggle} href="/genre/history?id=36">History</Link></li>
-                            <li><Link onClick={toggle} href="/genre/horror?id=27">Horror</Link></li>
-                            <li><Link onClick={toggle} href="/genre/music?id=10402">Music</Link></li>
-                            <li><Link onClick={toggle} href="/genre/mystery?id=9648">Mystery</Link></li>
-                            <li><Link onClick={toggle} href="/genre/romance?id=10749">Romance</Link></li>
-                            <li><Link onClick={toggle} href="/genre/sciencefiction?id=878">Science Fiction</Link></li>
-                            <li><Link onClick={toggle} href="/genre/thriller?id=53">Thriller</Link></li>
-                            <li><Link onClick={toggle} href="/genre/war?id=10752">War</Link></li>
-                            <li><Link onClick={toggle} href="/genre/western?id=37">Western</Link></li>
+                        <ul className={!dropdownOpen ? "dropdown-open text-xs bg-stone-900" : "hidden"}>
+                            <li><Link onClick={() => {toggle(); openDropdown();}} href="/genre/action?id=28">Action</Link></li>
+                            <li><Link onClick={() => {toggle(); openDropdown();}} href="/genre/adventure?id=12">Adventure</Link></li>
+                            <li><Link onClick={() => {toggle(); openDropdown();}} href="/genre/animation?id=16">Animation</Link></li>
+                            <li><Link onClick={() => {toggle(); openDropdown();}} href="/genre/comedy?id=35">Comedy</Link></li>
+                            <li><Link onClick={() => {toggle(); openDropdown();}} href="/genre/crime?id=80">Crime</Link></li>
+                            <li><Link onClick={() => {toggle(); openDropdown();}} href="/genre/documentary?id=99">Documentary</Link></li>
+                            <li><Link onClick={() => {toggle(); openDropdown();}} href="/genre/drama?id=18">Drama</Link></li>
+                            <li><Link onClick={() => {toggle(); openDropdown();}} href="/genre/family?id=10751">Family</Link></li>
+                            <li><Link onClick={() => {toggle(); openDropdown();}} href="/genre/fantasy?id=14">Fantasy</Link></li>
+                            <li><Link onClick={() => {toggle(); openDropdown();}} href="/genre/history?id=36">History</Link></li>
+                            <li><Link onClick={() => {toggle(); openDropdown();}} href="/genre/horror?id=27">Horror</Link></li>
+                            <li><Link onClick={() => {toggle(); openDropdown();}} href="/genre/music?id=10402">Music</Link></li>
+                            <li><Link onClick={() => {toggle(); openDropdown();}} href="/genre/mystery?id=9648">Mystery</Link></li>
+                            <li><Link onClick={() => {toggle(); openDropdown();}} href="/genre/romance?id=10749">Romance</Link></li>
+                            <li><Link onClick={() => {toggle(); openDropdown();}} href="/genre/sciencefiction?id=878">Science Fiction</Link></li>
+                            <li><Link onClick={() => {toggle(); openDropdown();}} href="/genre/thriller?id=53">Thriller</Link></li>
+                            <li><Link onClick={() => {toggle(); openDropdown();}} href="/genre/war?id=10752">War</Link></li>
+                            <li><Link onClick={() => {toggle(); openDropdown();}} href="/genre/western?id=37">Western</Link></li>
                         </ul>
                     </li>
 
