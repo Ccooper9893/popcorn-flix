@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const Providers = ({ provider }) => {
     return (
         <div className="w-3/5 mx-auto">
@@ -9,13 +11,22 @@ const Providers = ({ provider }) => {
                     <div tabIndex={0}>
                         <ul>
                             {provider?.flatrate ? (
-                                <div>
-                            {provider.flatrate.map((service) => {
-                                return (
-                                    <l1 key={provider.id}>{service?.provider_name}, </l1>
-                                )
-                            })}
-                            </div>
+                                <div className="flex flex-row flex-wrap justify-center gap-2">
+                                    {provider.flatrate.map((service) => {
+                                        return (
+                                            <Image
+                                            className=" rounded-full"
+                                            key={service.provider_id}
+                                            src={`https://image.tmdb.org/t/p/original${service.logo_path}`}
+                                            width={60}
+                                            height={60}
+                                            alt="Movie Poster"
+                                            loading="eager"
+                                        >
+                                        </Image>
+                                        )
+                                    })}
+                                </div>
                             ) : (
                                 <p>Currently unavailable for streaming.</p>
                             )}
@@ -29,20 +40,29 @@ const Providers = ({ provider }) => {
                     Rent
                 </div>
                 <div className="collapse-content transition-transform">
-                <ul>
-                            {provider?.rent ? (
-                                <div>
-                            {provider.rent.map((service) => {
-                                return (
-                                    <l1 key={provider.id}>{service?.provider_name}, </l1>
-                                )
-                            })}
+                    <ul>
+                        {provider?.rent ? (
+                            <div className="flex flex-row flex-wrap justify-center gap-2">
+                                {provider.rent.map((service) => {
+                                    return (
+                                        <Image
+                                        className=" rounded-full"
+                                            key={service.provider_id}
+                                            src={`https://image.tmdb.org/t/p/original${service.logo_path}`}
+                                            width={60}
+                                            height={60}
+                                            alt="Movie Poster"
+                                            loading="eager"
+                                        >
+                                        </Image>
+                                    )
+                                })}
                             </div>
-                            ) : (
-                                <p>Currently unavailable for renting.</p>
-                            )}
+                        ) : (
+                            <p>Currently unavailable for renting.</p>
+                        )}
 
-                        </ul>
+                    </ul>
                 </div>
             </div>
             <div tabIndex={2} className="collapse shadow shadow-stone-800">
@@ -50,20 +70,29 @@ const Providers = ({ provider }) => {
                     Buy
                 </div>
                 <div className="collapse-content transition-transform">
-                <ul>
-                            {provider?.buy ? (
-                                <div>
-                            {provider.buy.map((service) => {
-                                return (
-                                    <l1 key={provider.id}>{service?.provider_name}, </l1>
-                                )
-                            })}
+                    <ul>
+                        {provider?.buy ? (
+                            <div className="flex flex-row flex-wrap justify-center gap-2">
+                                {provider.buy.map((service) => {
+                                    return (
+                                        <Image
+                                        className=" rounded-full"
+                                        key={service.provider_id}
+                                        src={`https://image.tmdb.org/t/p/original${service.logo_path}`}
+                                        width={60}
+                                        height={60}
+                                        alt="Movie Poster"
+                                        loading="eager"
+                                    >
+                                    </Image>
+                                    )
+                                })}
                             </div>
-                            ) : (
-                                <p>Currently unavailable for buying.</p>
-                            )}
+                        ) : (
+                            <p>Currently unavailable for buying.</p>
+                        )}
 
-                        </ul>
+                    </ul>
                 </div>
             </div>
         </div>
