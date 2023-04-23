@@ -43,7 +43,7 @@ const MovieOverview = ({ movie, videoKey, similarMovies, button, handlePageChang
             {!videoKey && <h1 className="text-center">No videos found</h1>}
             {videoKey && <YouTube className="mx-auto mt-2 shadow-lg shado shadow-black z-30" videoId={videoKey} opts={videoOptions} />}
             <div className="flex flex-col mt-4">
-                {overViewTab && <h1 className="text-2xl text-center text-white font-bold md:text-2xl">{movie.original_title}</h1>}
+                <h1 className="text-2xl text-center text-white font-bold md:text-2xl">{movie.original_title}</h1>
                 <div className="tabs align-top justify-center">
                     <a className={overViewTab ? 'tab tab-bordered tab-active text-yellow-600 text-xl' : 'tab tab-bordered text-xl'} onClick={() => { setOverviewTab(true); setProvidersTab(false); setSimilarTab(false); }}>Overview</a>
                     <a className={providersTab ? 'tab tab-bordered tab-active text-yellow-600 text-xl' : 'tab tab-bordered text-xl'} onClick={() => { setOverviewTab(false); setProvidersTab(true); setSimilarTab(false); }}>Providers</a>
