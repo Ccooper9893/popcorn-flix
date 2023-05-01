@@ -50,6 +50,7 @@ const MovieOverview = ({ movie, videoKey, similarMovies, button, handlePageChang
                     <a className={similarTab ? 'tab tab-bordered tab-active text-yellow-600 text-xl' : 'tab tab-bordered text-xl'} onClick={() => { setOverviewTab(false); setProvidersTab(false); setSimilarTab(true); }}>Similar</a>
                 </div>
                 <div className="text-center">
+                    
                     {overViewTab && (
                         <div className="mt-3">
                             <p className="text-lg lg:w-3/5 mx-auto">{movie.overview}</p>
