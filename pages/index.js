@@ -12,7 +12,6 @@ const HomePage = () => {
         { id: 1813, poster_path: '/5ZzBGpxy55OQzHxKVY11IpY6a0o.jpg' },
         { id: 9339, poster_path: '/oL0k5JA53PyoHSZqKb3cNkhwBCE.jpg' },
         { id: 587, poster_path: '/tjK063yCgaBAluVU72rZ6PKPH2l.jpg' },
-        { id: 615, poster_path: '/v9f9MMrq2nGQrN7cHnQRmEq9lSE.jpg' },
     ];
 
     return (
