@@ -105,18 +105,22 @@ body {
 @keyframes floatDownSlow1 {
   0% {
     transform: translateY(-110%) rotate(0deg);
+    opacity: 1;
   }
   100% {
     transform: translateY(150vh) rotate(360deg); /* Adjust to desired distance */
+    opacity: 0;
   }
 }
 
 @keyframes floatDownSlow2 {
   0% {
     transform: translateY(-106%) rotate(360deg);
+    opacity: 1;
   }
   100% {
     transform: translateY(150vh) rotate(0deg); /* Adjust to desired distance */
+    opacity: 0;
   }
 }
 
