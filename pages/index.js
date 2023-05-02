@@ -21,9 +21,10 @@ const HomePage = () => {
             <div className="hero-content text-center text-neutral-content">
                 <div className="max-w-2xl min-h-screen">
                     <h1 className="my-2 text-3xl lg:text-6xl font-bold">Welcome to <span className="text-yellow-600">Bring Popcorn</span></h1>
+                    <p className="mt-4 mb-8 text-2xl italic">{`"`}Your Ultimate Destination for discovering Popcorn-Worthy Movies!{`"`}</p>
                     <h2 className="text-2xl border-b border-white">Weekly Picks</h2>
                     <SimilarMovies similarMovies={movieList} />
-                    <p className="mt-4 text-2xl italic">{`"`}Your Ultimate Destination for discovering Popcorn-Worthy Movies!{`"`}</p>
+
                 </div>
             </div>
         </div>
