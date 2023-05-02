@@ -3,14 +3,16 @@ import SimilarMovies from "@/components/Details/SimilarMovies";
 const HomePage = () => {
 
     const movieList = [
-        { id: 510, poster_path: '/3jcbDmRFiQ83drXNOvRDeKHxS0C.jpg' },
-        { id: 87827, poster_path: '/mYDKm9HxImm8PRru3KbkHAe1cmk.jpg' },
-        { id: 4922, poster_path: '/9H2awZmNisMVJGp362Stv0bfUTs.jpg' },
-        { id: 438631, poster_path: '/d5NXSklXo0qyIYkgV94XAgMIckC.jpg' },
-        { id: 395992, poster_path: '/wztfli5NgYDgurVgShNflvnyA3Z.jpg' },
-        { id: 37472, poster_path: '/yB5v6wRhIoZxlDvCFFCQhUNezDY.jpg' },
-        { id: 7350, poster_path: '/idbNSe8zsYKQL97dJApfOrDSdya.jpg' },
-        { id: 4982, poster_path: '/sX9idXDqRUxE5ffww3n3RV5gL55.jpg' },
+        { id: 411728, poster_path: '/gtGCDLhfjW96qVarwctnuTpGOtD.jpg' },
+        { id: 11324, poster_path: '/4GDy0PHYX3VRXUtwK5ysFbg3kEx.jpg' },
+        { id: 550, poster_path: '/pB8BM7pdSp6B6Ih7QZ4DrQ3PmJK.jpg' },
+        { id: 489, poster_path: '/bABCBKYBK7A5G1x0FzoeoNfuj2.jpg' },
+        { id: 652, poster_path: '/a07wLy4ONfpsjnBqMwhlWTJTcm.jpg' },
+        { id: 333339, poster_path: '/pU1ULUq8D3iRxl1fdX2lZIzdHuI.jpg' },
+        { id: 1813, poster_path: '/5ZzBGpxy55OQzHxKVY11IpY6a0o.jpg' },
+        { id: 9339, poster_path: '/oL0k5JA53PyoHSZqKb3cNkhwBCE.jpg' },
+        { id: 587, poster_path: '/tjK063yCgaBAluVU72rZ6PKPH2l.jpg' },
+        { id: 615, poster_path: '/v9f9MMrq2nGQrN7cHnQRmEq9lSE.jpg' },
     ];
 
     return (
