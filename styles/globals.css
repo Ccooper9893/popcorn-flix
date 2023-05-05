@@ -13,7 +13,8 @@
 
 
 body {
-  background-color: black;
+  background-image: url(../public/prism.png);
+  background-repeat: repeat;
   height: 100vh;
   overflow: hidden
 }
