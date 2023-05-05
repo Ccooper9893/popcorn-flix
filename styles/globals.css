@@ -13,10 +13,7 @@
 
 
 body {
-  background-image: linear-gradient(
-    #2f0000,
-    black
-  );
+  background-color: black;
   height: 100vh;
   overflow: hidden
 }
