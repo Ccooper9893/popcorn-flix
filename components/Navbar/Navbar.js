@@ -3,7 +3,7 @@ import { useState } from "react";
 import Image from "next/image";
 import logo from "../../public/popcornbag.webp"
 import Link from "next/link";
-import PopcornFall from "../misc/PopcornFall";
+// import PopcornFall from "../misc/PopcornFall";
 import { useRef } from "react";
 
 const Navbar = ({ children }) => {
@@ -92,7 +92,7 @@ const Navbar = ({ children }) => {
                         </button>
                     </div>
                 </div>
-                <PopcornFall />
+                {/* <PopcornFall /> */}
                 {children}
             </div>
             <div className="drawer-side">
