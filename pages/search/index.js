@@ -30,6 +30,7 @@ const Search = () => {
             const results = await response.json();
             setMovieList(results);
             setFound(true);
+            console.log(results);
         } else {
             setMovieList([]);
             setFound(false);
