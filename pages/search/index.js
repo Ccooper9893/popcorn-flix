@@ -30,6 +30,7 @@ const Search = () => {
             const results = await response.json();
             setMovieList(results);
             setFound(true);
+            // Grab movie ID for weekly movie list here
             console.log(results);
         } else {
             setMovieList([]);
