@@ -60,7 +60,7 @@ const response = await fetch(`https://api.themoviedb.org/3/discover/movie?api_ke
         break;
     }
   } catch (error) {
-    res.status(500).json({ message: 'There has been an internal server error.' })
+    res.status(500).json({ message: 'There has been an internal server error!' })
   }
 
 };
