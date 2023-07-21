@@ -1,4 +1,7 @@
 import SimilarMovies from "@/components/Details/SimilarMovies";
+import Image from "next/image";
+import logo from "../public/popcornbag.webp"
+import PopcornFall from "@/components/misc/PopcornFall";
 
 const HomePage = () => {
 
@@ -15,14 +18,21 @@ const HomePage = () => {
 
     return (
         <div className="hero place-items-center min-h-screen">
+            <PopcornFall/>
             <div className="hero-overlay bg-opacity-60"></div>
-            <div className="hero-content text-center text-neutral-content">
-                <div className="max-w-2xl min-h-screen">
-                    <h1 className="my-2 text-3xl lg:text-6xl font-bold">Welcome to <span className="text-yellow-600">Bring Popcorn</span></h1>
-                    <p className="mt-4 mb-8 text-2xl italic">{`"`}Your Ultimate Destination for discovering Popcorn-Worthy Movies!{`"`}</p>
-                    <h2 className="text-2xl border-b border-white">Weekly Picks</h2>
-                    <SimilarMovies similarMovies={movieList} />
 
+            <div className="min-h-screen">
+                <div className="mx-4 md:mx-40">
+                <Image
+                        className="rounded-lg mx-auto"
+                        src={logo}
+                        width={100}
+                        alt="Popcorn Bag"
+                    />
+                    <h1 className="my-2 text-3xl lg:text-6xl font-bold text-center">Welcome to <span className="text-yellow-600">Bring Popcorn</span></h1>
+                    <p className="mt-4 mb-8 text-2xl italic  text-center text-white">Your Ultimate Destination for discovering Popcorn-Worthy Movies!</p>
+                    <h2 className="text-4xl text-center border-t py-2">Movies of the Month</h2>
+                    <SimilarMovies similarMovies={movieList} />
                 </div>
             </div>
         </div>

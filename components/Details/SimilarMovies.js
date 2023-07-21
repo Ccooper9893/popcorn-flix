@@ -6,10 +6,10 @@ const SimilarMovies = ({ similarMovies, button, handlePageChange }) => {
             {similarMovies && (
                 <div className="mb-6 lg:mx-10">
                     {/* <div className="flex flex-row flex-wrap justify-center gap-2 p-2 lg:gap-4"> */}
-                    <div className="carousel carousel-center w-full">
+                    <div className="w-full flex flex-wrap justify-center">
                         {similarMovies.map((movie) => {
                             return (
-                                <div className="carousel-item my-2" key={movie.id} >
+                                <div className="my-2" key={movie.id} >
                                     <MovieCard movie={movie} />
                                 </div>
                             )
