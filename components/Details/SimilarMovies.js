@@ -9,12 +9,12 @@ const SimilarMovies = ({ similarMovies, button, handlePageChange }) => {
                     <div className="w-full flex flex-wrap justify-center">
                         {similarMovies.map((movie) => {
                             return (
-                                <div className="my-2" key={movie.id} >
+                                <div className="m-1" key={movie.id} >
                                     <MovieCard movie={movie} />
                                 </div>
                             )
                         })}
-                        {button && (<button className="btn-ghost px-2 text-xs h-80 border rounded-r-lg border-stone-600 my-auto" onClick={handlePageChange}>{'>'}</button>)}
+                        {button && (<button className="btn-ghost px-2 text-xs border border-stone-600 my-auto" onClick={handlePageChange}>{'More'}</button>)}
                     </div>
 
                 </div>
