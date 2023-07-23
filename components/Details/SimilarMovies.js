@@ -16,7 +16,7 @@ const SimilarMovies = ({ similarMovies, button, handlePageChange }) => {
                         })}
                         
                     </div>
-                    {button && (<button className="btn-ghost px-2 text-xs border border-stone-600 my-auto" onClick={handlePageChange}>{'More'}</button>)}
+                    {button && (<button className="btn-ghost py-4 px-12 border border-stone-600 my-auto" onClick={handlePageChange}>{'More'}</button>)}
                 </div>
             )}
         </div>
