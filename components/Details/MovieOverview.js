@@ -6,16 +6,16 @@ import Providers from "./Providers";
 import { useEffect, useState } from "react";
 const MovieOverview = ({ movie, videoKey, similarMovies, button, handlePageChange }) => {
 
-    const [videoTab, setVideoTab] = useState(true);
-    const [overViewTab, setOverviewTab] = useState(false);
+    const [videoTab, setVideoTab] = useState(false);
+    const [overViewTab, setOverviewTab] = useState(true);
     const [providersTab, setProvidersTab] = useState(false);
     const [similarTab, setSimilarTab] = useState(false);
 
     useEffect(() => {
-        setVideoTab(true);
+        setVideoTab(false);
         setSimilarTab(false);
         setProvidersTab(false);
-        setOverviewTab(false);
+        setOverviewTab(true);
     }, [movie])
 
     //Format revenue $$$
@@ -43,11 +43,10 @@ const MovieOverview = ({ movie, videoKey, similarMovies, button, handlePageChang
         <div className="flex flex-col mt-4">
             <h1 className="text-2xl text-center text-white font-bold md:text-2xl">{movie.original_title}</h1>
             <div className="tabs align-top justify-center">
-                <a className={overViewTab ? 'tab tab-bordered tab-active text-yellow-600 text-xl' : 'tab tab-bordered text-xl'} onClick={() => { setOverviewTab(true); setProvidersTab(false); setSimilarTab(false); }}>Overview</a>
-                <a className={videoTab ? 'tab tab-bordered tab-active text-yellow-600 text-xl' : 'tab tab-bordered text-xl'} onClick={() => { videoTab(true); setProvidersTab(false); setSimilarTab(false); }}>Overview</a>
-                <a className={overViewTab ? 'tab tab-bordered tab-active text-yellow-600 text-xl' : 'tab tab-bordered text-xl'} onClick={() => { setOverviewTab(true); setProvidersTab(false); setSimilarTab(false); }}>Overview</a>
-                <a className={providersTab ? 'tab tab-bordered tab-active text-yellow-600 text-xl' : 'tab tab-bordered text-xl'} onClick={() => { setOverviewTab(false); setProvidersTab(true); setSimilarTab(false); }}>Providers</a>
-                <a className={similarTab ? 'tab tab-bordered tab-active text-yellow-600 text-xl' : 'tab tab-bordered text-xl'} onClick={() => { setOverviewTab(false); setProvidersTab(false); setSimilarTab(true); }}>Similar</a>
+                <a className={overViewTab ? 'tab tab-bordered tab-active text-yellow-600 text-xl' : 'tab tab-bordered text-xl'} onClick={() => { setOverviewTab(true); setProvidersTab(false); setSimilarTab(false); setVideoTab(false); }}>Overview</a>
+                <a className={videoTab ? 'tab tab-bordered tab-active text-yellow-600 text-xl' : 'tab tab-bordered text-xl'} onClick={() => { setOverviewTab(false); setProvidersTab(false); setSimilarTab(false); setVideoTab(true);}}>Trailer</a>
+                <a className={providersTab ? 'tab tab-bordered tab-active text-yellow-600 text-xl' : 'tab tab-bordered text-xl'} onClick={() => { setOverviewTab(false); setProvidersTab(true); setSimilarTab(false); setVideoTab(false);}}>Providers</a>
+                <a className={similarTab ? 'tab tab-bordered tab-active text-yellow-600 text-xl' : 'tab tab-bordered text-xl'} onClick={() => { setOverviewTab(false); setProvidersTab(false); setSimilarTab(true); setVideoTab(false);}}>Similar</a>
             </div>
             <div className="text-center">
 
@@ -61,7 +60,7 @@ const MovieOverview = ({ movie, videoKey, similarMovies, button, handlePageChang
                         <h2 className="">Budget: {budget}<small></small></h2>
                     </div>
                 )}
-                {videoTabTab && (
+                {videoTab && (
                     <div className="w-full">
                         {!videoKey && <h1 className="text-center">No videos found</h1>}
                         {videoKey && <YouTube className="mx-auto mt-2 shadow-lg shadow-black z-30" videoId={videoKey} opts={videoOptions} />}
