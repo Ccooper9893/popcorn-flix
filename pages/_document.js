@@ -23,7 +23,7 @@ export default function Document() {
                     j.async = true
                     j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl
                     f.parentNode.insertBefore(j, f)
-                  })(window,document,'script','dataLayer',${process.env.NEXT_PUBLIC_GTM_ID})`,
+                  })(window,document,'script','dataLayer','${process.env.GTM}')`,
               }}
             >
               </Script>
@@ -31,7 +31,7 @@ export default function Document() {
       <body className='h-screen'>
       <noscript>
           <iframe
-            src={`https://www.googletagmanager.com/ns.html?id=${process.env.NEXT_PUBLIC_GTM_ID}`}
+            src={`https://www.googletagmanager.com/ns.html?id=${process.env.GTM}`}
             height="0"
             width="0"
             style={{ display: "none", visibility: "hidden" }}
