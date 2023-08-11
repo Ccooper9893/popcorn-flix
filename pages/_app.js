@@ -5,7 +5,7 @@ import { SearchProvider } from '@/utils/searchContext';
 import Script from 'next/script';
 
 export default function App({ Component, pageProps }) {
-    return (
+    return ( 
     <div>
       <Script id="google-analytics">
         {`
