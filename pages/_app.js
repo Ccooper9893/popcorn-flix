@@ -1,4 +1,5 @@
 import '@/styles/globals.css';
+import { useEffect } from 'react';
 import Head from 'next/head';
 import Navbar from '@/components/Navbar/Navbar';
 import { SearchProvider } from '@/utils/searchContext';
