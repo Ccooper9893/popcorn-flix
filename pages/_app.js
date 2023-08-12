@@ -4,15 +4,12 @@ import Head from 'next/head';
 import Navbar from '@/components/Navbar/Navbar';
 import { SearchProvider } from '@/utils/searchContext';
 import Script from 'next/script';
-import TagManager from 'react-gtm-module';
 
 export default function App({ Component, pageProps }) {
-  useEffect(() => {
-    // Initialize GTM
-    TagManager.initialize({ gtmId: process.env.GTM });
-  }, []);
+
     return ( 
     <div>
+      <Script src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}`} />
       <Script id="google-analytics">
         {`
           window.dataLayer = window.dataLayer || [];
@@ -27,6 +24,7 @@ export default function App({ Component, pageProps }) {
         {`
           // Empty script tag because GTM is loaded through react-gtm-module
         `}
+        
       </Script>
       <Head>
         <title>Bring Popcorn</title>
