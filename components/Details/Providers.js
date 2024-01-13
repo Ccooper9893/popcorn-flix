@@ -11,7 +11,7 @@ const Providers = ({ provider }) => {
                     <div tabIndex={0}>
                         <ul>
                             {provider?.flatrate ? (
-                                <div className="flex flex-row flex-wrap justify-center gap-2 mb-3">
+                                <div className="flex flex-row flex-wrap justify-center gap-2 mb-5">
                                     {provider.flatrate.map((service) => {
                                         return (
                                             <Image
@@ -28,7 +28,7 @@ const Providers = ({ provider }) => {
                                     })}
                                 </div>
                             ) : (
-                                <p>Currently unavailable for streaming.</p>
+                                <p className="mb-3">Currently unavailable for streaming.</p>
                             )}
 
                         </ul>
@@ -42,7 +42,7 @@ const Providers = ({ provider }) => {
                 <div className="transition-transform">
                     <ul>
                         {provider?.rent ? (
-                            <div className="flex flex-row flex-wrap justify-center gap-2 mb-3">
+                            <div className="flex flex-row flex-wrap justify-center gap-2 mb-5">
                                 {provider.rent.map((service) => {
                                     return (
                                         <Image
@@ -59,7 +59,7 @@ const Providers = ({ provider }) => {
                                 })}
                             </div>
                         ) : (
-                            <p>Currently unavailable for renting.</p>
+                            <p className="mb-3">Currently unavailable for renting.</p>
                         )}
 
                     </ul>
@@ -72,7 +72,7 @@ const Providers = ({ provider }) => {
                 <div className="transition-transform">
                     <ul>
                         {provider?.buy ? (
-                            <div className="flex flex-row flex-wrap justify-center gap-2 mb-3">
+                            <div className="flex flex-row flex-wrap justify-center gap-2 mb-5">
                                 {provider.buy.map((service) => {
                                     return (
                                         <Image
@@ -89,7 +89,7 @@ const Providers = ({ provider }) => {
                                 })}
                             </div>
                         ) : (
-                            <p>Currently unavailable for buying.</p>
+                            <p className="mb-3">Currently unavailable for buying.</p>
                         )}
 
                     </ul>
