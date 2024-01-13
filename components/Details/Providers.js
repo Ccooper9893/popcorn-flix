@@ -7,11 +7,11 @@ const Providers = ({ provider }) => {
                 <div className="collapse-title px-0">
                     Stream
                 </div>
-                <div className="collapse-content transition-transform">
+                <div className="transition-transform">
                     <div tabIndex={0}>
                         <ul>
                             {provider?.flatrate ? (
-                                <div className="flex flex-row flex-wrap justify-center gap-2">
+                                <div className="flex flex-row flex-wrap justify-center gap-2 mb-3">
                                     {provider.flatrate.map((service) => {
                                         return (
                                             <Image
@@ -39,10 +39,10 @@ const Providers = ({ provider }) => {
                 <div className="collapse-title px-0">
                     Rent
                 </div>
-                <div className="collapse-content transition-transform">
+                <div className="transition-transform">
                     <ul>
                         {provider?.rent ? (
-                            <div className="flex flex-row flex-wrap justify-center gap-2">
+                            <div className="flex flex-row flex-wrap justify-center gap-2 mb-3">
                                 {provider.rent.map((service) => {
                                     return (
                                         <Image
@@ -69,10 +69,10 @@ const Providers = ({ provider }) => {
                 <div className="collapse-title px-0">
                     Buy
                 </div>
-                <div className="collapse-content transition-transform">
+                <div className="transition-transform">
                     <ul>
                         {provider?.buy ? (
-                            <div className="flex flex-row flex-wrap justify-center gap-2">
+                            <div className="flex flex-row flex-wrap justify-center gap-2 mb-3">
                                 {provider.buy.map((service) => {
                                     return (
                                         <Image
