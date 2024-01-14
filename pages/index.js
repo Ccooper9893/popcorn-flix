@@ -29,9 +29,9 @@ const HomePage = () => {
                         width={100}
                         alt="Popcorn Bag"
                     />
-                    <h1 className="my-2 text-3xl lg:text-6xl font-bold text-center">Welcome to <span className="text-yellow-600">Bring Popcorn</span></h1>
-                    <p className="mt-4 mb-8 text-2xl italic  text-center text-white">Your Ultimate Destination for discovering Popcorn-Worthy Movies!</p>
-                    <h2 className="text-4xl text-center border-t py-2">Movies of the Month</h2>
+                    <h1 className="my-2 text-3xl lg:text-6xl font-thin text-center">Welcome to <span className="text-yellow-600">Bring Popcorn</span></h1>
+                    <p className="mt-4 mb-8 text-2xl italic font-thin text-center text-white">Your Ultimate Destination for discovering Popcorn-Worthy Movies!</p>
+                    <h2 className="text-4xl text-center border-t border-stone-400 py-2">Movies of the Month</h2>
                     <SimilarMovies similarMovies={movieList} />
                 </div>
             </div>
