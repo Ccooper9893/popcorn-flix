@@ -33,13 +33,13 @@ const MovieOverview = ({ movie, videoKey, similarMovies, button, handlePageChang
         width: '400px',
     };
     const desktopDimensions = {
-        height: '500px',
-        width: '850px',
+        height: '400px',
+        width: '700px',
     };
     const videoOptions = formatVideo(mobileDimensions, desktopDimensions, 1);
 
     return (
-        <div className="flex flex-row my-6 mx-4">
+        <div className="flex flex-col my-6 mx-4">
             {!videoKey && <h1 className="text-center">No videos found</h1>}
             {videoKey && <YouTube className="mx-auto mt-2 shadow-lg shado shadow-black z-30" videoId={videoKey} opts={videoOptions} />}
             <div className="flex flex-col mt-4">
