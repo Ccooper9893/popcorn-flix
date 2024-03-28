@@ -6,7 +6,7 @@ import PopcornFall from "@/components/misc/PopcornFall";
 const HomePage = () => {
 
     const movieList = [
-        { id: 31011, poster_path: '/qNkIONc4Rgmzo23ph7qWp9QfVnW.jpg' },
+        { id: 510, poster_path: '/oje9d0EXQyQcxsqHQor4xFVGjrd.jpg' },
         { id: 16869, poster_path: '/7sfbEnaARXDDhKm0CZ7D7uc2sbo.jpg' },
         { id: 14756, poster_path: '/ggTTUXZg7trvAhsVj3eyd65bAnh.jpg' },
         { id: 2898, poster_path: '/xXxuJPNUDZ0vjsAXca0O5p3leVB.jpg' },
@@ -31,6 +31,7 @@ const HomePage = () => {
                     />
                     <h1 className="my-2 text-3xl lg:text-6xl font-thin text-center">Welcome to <span className="text-yellow-600">Bring Popcorn</span></h1>
                     <p className="mt-4 mb-8 text-lg italic font-thin text-center text-stone-300">Your Ultimate Destination for discovering Popcorn-Worthy Movies!</p>
+                    <h2>Top Developer Picks</h2>
                     <SimilarMovies similarMovies={movieList} />
                 </div>
             </div>
