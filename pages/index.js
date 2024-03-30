@@ -31,7 +31,7 @@ const HomePage = () => {
                     />
                     <h1 className="my-2 text-3xl lg:text-6xl font-thin text-center">Welcome to <span className="text-yellow-600">Bring Popcorn</span></h1>
                     <p className="mt-4 mb-8 text-lg italic font-thin text-center text-stone-300">Your Ultimate Destination for discovering Popcorn-Worthy Movies!</p>
-                    <h2 className="mt-6 text-2xl lg:text-5xl font-thin text-center underline">Movies of the Month</h2>
+                    <h2 className="mt-6 text-xl lg:text-3xl font-thin text-center underline">Movies of the Month</h2>
                     <SimilarMovies similarMovies={movieList} />
                 </div>
             </div>
